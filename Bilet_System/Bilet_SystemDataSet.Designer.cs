@@ -24,9 +24,9 @@ namespace Bilet_System {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class Bilet_SystemDataSet : global::System.Data.DataSet {
         
-        private BiletsDataTable tableBilets;
+        private BiletDataTable tableBilet;
         
-        private Cancellation_of_the_EventDataTable tableCancellation_of_the_Event;
+        private Cancellation_of_the_eventDataTable tableCancellation_of_the_event;
         
         private Event_CardDataTable tableEvent_Card;
         
@@ -39,6 +39,20 @@ namespace Bilet_System {
         private RolesDataTable tableRoles;
         
         private UsersDataTable tableUsers;
+        
+        private global::System.Data.DataRelation relationFK_Bilet_Refund_Bilets;
+        
+        private global::System.Data.DataRelation relationFK_Event_Card_Cancellation_of_the_Event;
+        
+        private global::System.Data.DataRelation relationFK_Pokupatel_Bilet;
+        
+        private global::System.Data.DataRelation relationFK_Pokupatel_Users;
+        
+        private global::System.Data.DataRelation relationFK_Prodawec_Bilet;
+        
+        private global::System.Data.DataRelation relationFK_Prodawec_Users;
+        
+        private global::System.Data.DataRelation relationFK_Users_Roles;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -68,11 +82,11 @@ namespace Bilet_System {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Bilets"] != null)) {
-                    base.Tables.Add(new BiletsDataTable(ds.Tables["Bilets"]));
+                if ((ds.Tables["Bilet"] != null)) {
+                    base.Tables.Add(new BiletDataTable(ds.Tables["Bilet"]));
                 }
-                if ((ds.Tables["Cancellation_of_the_Event"] != null)) {
-                    base.Tables.Add(new Cancellation_of_the_EventDataTable(ds.Tables["Cancellation_of_the_Event"]));
+                if ((ds.Tables["Cancellation_of_the_event"] != null)) {
+                    base.Tables.Add(new Cancellation_of_the_eventDataTable(ds.Tables["Cancellation_of_the_event"]));
                 }
                 if ((ds.Tables["Event_Card"] != null)) {
                     base.Tables.Add(new Event_CardDataTable(ds.Tables["Event_Card"]));
@@ -114,9 +128,9 @@ namespace Bilet_System {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public BiletsDataTable Bilets {
+        public BiletDataTable Bilet {
             get {
-                return this.tableBilets;
+                return this.tableBilet;
             }
         }
         
@@ -124,9 +138,9 @@ namespace Bilet_System {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Cancellation_of_the_EventDataTable Cancellation_of_the_Event {
+        public Cancellation_of_the_eventDataTable Cancellation_of_the_event {
             get {
-                return this.tableCancellation_of_the_Event;
+                return this.tableCancellation_of_the_event;
             }
         }
         
@@ -257,11 +271,11 @@ namespace Bilet_System {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Bilets"] != null)) {
-                    base.Tables.Add(new BiletsDataTable(ds.Tables["Bilets"]));
+                if ((ds.Tables["Bilet"] != null)) {
+                    base.Tables.Add(new BiletDataTable(ds.Tables["Bilet"]));
                 }
-                if ((ds.Tables["Cancellation_of_the_Event"] != null)) {
-                    base.Tables.Add(new Cancellation_of_the_EventDataTable(ds.Tables["Cancellation_of_the_Event"]));
+                if ((ds.Tables["Cancellation_of_the_event"] != null)) {
+                    base.Tables.Add(new Cancellation_of_the_eventDataTable(ds.Tables["Cancellation_of_the_event"]));
                 }
                 if ((ds.Tables["Event_Card"] != null)) {
                     base.Tables.Add(new Event_CardDataTable(ds.Tables["Event_Card"]));
@@ -314,16 +328,16 @@ namespace Bilet_System {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableBilets = ((BiletsDataTable)(base.Tables["Bilets"]));
+            this.tableBilet = ((BiletDataTable)(base.Tables["Bilet"]));
             if ((initTable == true)) {
-                if ((this.tableBilets != null)) {
-                    this.tableBilets.InitVars();
+                if ((this.tableBilet != null)) {
+                    this.tableBilet.InitVars();
                 }
             }
-            this.tableCancellation_of_the_Event = ((Cancellation_of_the_EventDataTable)(base.Tables["Cancellation_of_the_Event"]));
+            this.tableCancellation_of_the_event = ((Cancellation_of_the_eventDataTable)(base.Tables["Cancellation_of_the_event"]));
             if ((initTable == true)) {
-                if ((this.tableCancellation_of_the_Event != null)) {
-                    this.tableCancellation_of_the_Event.InitVars();
+                if ((this.tableCancellation_of_the_event != null)) {
+                    this.tableCancellation_of_the_event.InitVars();
                 }
             }
             this.tableEvent_Card = ((Event_CardDataTable)(base.Tables["Event_Card"]));
@@ -362,6 +376,13 @@ namespace Bilet_System {
                     this.tableUsers.InitVars();
                 }
             }
+            this.relationFK_Bilet_Refund_Bilets = this.Relations["FK_Bilet_Refund_Bilets"];
+            this.relationFK_Event_Card_Cancellation_of_the_Event = this.Relations["FK_Event_Card_Cancellation_of_the_Event"];
+            this.relationFK_Pokupatel_Bilet = this.Relations["FK_Pokupatel_Bilet"];
+            this.relationFK_Pokupatel_Users = this.Relations["FK_Pokupatel_Users"];
+            this.relationFK_Prodawec_Bilet = this.Relations["FK_Prodawec_Bilet"];
+            this.relationFK_Prodawec_Users = this.Relations["FK_Prodawec_Users"];
+            this.relationFK_Users_Roles = this.Relations["FK_Users_Roles"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -372,10 +393,10 @@ namespace Bilet_System {
             this.Namespace = "http://tempuri.org/Bilet_SystemDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableBilets = new BiletsDataTable();
-            base.Tables.Add(this.tableBilets);
-            this.tableCancellation_of_the_Event = new Cancellation_of_the_EventDataTable();
-            base.Tables.Add(this.tableCancellation_of_the_Event);
+            this.tableBilet = new BiletDataTable();
+            base.Tables.Add(this.tableBilet);
+            this.tableCancellation_of_the_event = new Cancellation_of_the_eventDataTable();
+            base.Tables.Add(this.tableCancellation_of_the_event);
             this.tableEvent_Card = new Event_CardDataTable();
             base.Tables.Add(this.tableEvent_Card);
             this.tablePokupatel = new PokupatelDataTable();
@@ -388,17 +409,45 @@ namespace Bilet_System {
             base.Tables.Add(this.tableRoles);
             this.tableUsers = new UsersDataTable();
             base.Tables.Add(this.tableUsers);
+            this.relationFK_Bilet_Refund_Bilets = new global::System.Data.DataRelation("FK_Bilet_Refund_Bilets", new global::System.Data.DataColumn[] {
+                        this.tableRefund_Bilets.ID_BiletColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBilet.ID_BiletColumn}, false);
+            this.Relations.Add(this.relationFK_Bilet_Refund_Bilets);
+            this.relationFK_Event_Card_Cancellation_of_the_Event = new global::System.Data.DataRelation("FK_Event_Card_Cancellation_of_the_Event", new global::System.Data.DataColumn[] {
+                        this.tableCancellation_of_the_event.ID_Event_CardColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEvent_Card.ID_Event_CardColumn}, false);
+            this.Relations.Add(this.relationFK_Event_Card_Cancellation_of_the_Event);
+            this.relationFK_Pokupatel_Bilet = new global::System.Data.DataRelation("FK_Pokupatel_Bilet", new global::System.Data.DataColumn[] {
+                        this.tableBilet.ID_BiletColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePokupatel.ID_BiletColumn}, false);
+            this.Relations.Add(this.relationFK_Pokupatel_Bilet);
+            this.relationFK_Pokupatel_Users = new global::System.Data.DataRelation("FK_Pokupatel_Users", new global::System.Data.DataColumn[] {
+                        this.tableUsers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePokupatel.IDColumn}, false);
+            this.Relations.Add(this.relationFK_Pokupatel_Users);
+            this.relationFK_Prodawec_Bilet = new global::System.Data.DataRelation("FK_Prodawec_Bilet", new global::System.Data.DataColumn[] {
+                        this.tableBilet.ID_BiletColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProdawec.ID_BiletColumn}, false);
+            this.Relations.Add(this.relationFK_Prodawec_Bilet);
+            this.relationFK_Prodawec_Users = new global::System.Data.DataRelation("FK_Prodawec_Users", new global::System.Data.DataColumn[] {
+                        this.tableUsers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProdawec.IDColumn}, false);
+            this.Relations.Add(this.relationFK_Prodawec_Users);
+            this.relationFK_Users_Roles = new global::System.Data.DataRelation("FK_Users_Roles", new global::System.Data.DataColumn[] {
+                        this.tableRoles.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUsers.IDRoleColumn}, false);
+            this.Relations.Add(this.relationFK_Users_Roles);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeBilets() {
+        private bool ShouldSerializeBilet() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeCancellation_of_the_Event() {
+        private bool ShouldSerializeCancellation_of_the_event() {
             return false;
         }
         
@@ -494,10 +543,10 @@ namespace Bilet_System {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void BiletsRowChangeEventHandler(object sender, BiletsRowChangeEvent e);
+        public delegate void BiletRowChangeEventHandler(object sender, BiletRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Cancellation_of_the_EventRowChangeEventHandler(object sender, Cancellation_of_the_EventRowChangeEvent e);
+        public delegate void Cancellation_of_the_eventRowChangeEventHandler(object sender, Cancellation_of_the_eventRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void Event_CardRowChangeEventHandler(object sender, Event_CardRowChangeEvent e);
@@ -522,28 +571,20 @@ namespace Bilet_System {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BiletsDataTable : global::System.Data.TypedTableBase<BiletsRow> {
+        public partial class BiletDataTable : global::System.Data.TypedTableBase<BiletRow> {
             
             private global::System.Data.DataColumn columnID_Bilet;
             
-            private global::System.Data.DataColumn columnAddress_Bilet;
+            private global::System.Data.DataColumn columnSold_bilets;
             
-            private global::System.Data.DataColumn columnDate_Bilet;
+            private global::System.Data.DataColumn columnDate_pokupki;
             
-            private global::System.Data.DataColumn columnTime_Bilet;
-            
-            private global::System.Data.DataColumn columnPlace_Bilet;
-            
-            private global::System.Data.DataColumn columnTopic_Bilet;
-            
-            private global::System.Data.DataColumn columnCategory_Bilets;
-            
-            private global::System.Data.DataColumn columnPrice_Bilets;
+            private global::System.Data.DataColumn columnID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsDataTable() {
-                this.TableName = "Bilets";
+            public BiletDataTable() {
+                this.TableName = "Bilet";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -551,7 +592,7 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal BiletsDataTable(global::System.Data.DataTable table) {
+            internal BiletDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -568,7 +609,7 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected BiletsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected BiletDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -583,57 +624,25 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Address_BiletColumn {
+            public global::System.Data.DataColumn Sold_biletsColumn {
                 get {
-                    return this.columnAddress_Bilet;
+                    return this.columnSold_bilets;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Date_BiletColumn {
+            public global::System.Data.DataColumn Date_pokupkiColumn {
                 get {
-                    return this.columnDate_Bilet;
+                    return this.columnDate_pokupki;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Time_BiletColumn {
+            public global::System.Data.DataColumn IDColumn {
                 get {
-                    return this.columnTime_Bilet;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Place_BiletColumn {
-                get {
-                    return this.columnPlace_Bilet;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Topic_BiletColumn {
-                get {
-                    return this.columnTopic_Bilet;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Category_BiletsColumn {
-                get {
-                    return this.columnCategory_Bilets;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Price_BiletsColumn {
-                get {
-                    return this.columnPrice_Bilets;
+                    return this.columnID;
                 }
             }
             
@@ -648,59 +657,55 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsRow this[int index] {
+            public BiletRow this[int index] {
                 get {
-                    return ((BiletsRow)(this.Rows[index]));
+                    return ((BiletRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event BiletsRowChangeEventHandler BiletsRowChanging;
+            public event BiletRowChangeEventHandler BiletRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event BiletsRowChangeEventHandler BiletsRowChanged;
+            public event BiletRowChangeEventHandler BiletRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event BiletsRowChangeEventHandler BiletsRowDeleting;
+            public event BiletRowChangeEventHandler BiletRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event BiletsRowChangeEventHandler BiletsRowDeleted;
+            public event BiletRowChangeEventHandler BiletRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddBiletsRow(BiletsRow row) {
+            public void AddBiletRow(BiletRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsRow AddBiletsRow(int ID_Bilet, string Address_Bilet, System.DateTime Date_Bilet, System.TimeSpan Time_Bilet, string Place_Bilet, string Topic_Bilet, string Category_Bilets, int Price_Bilets) {
-                BiletsRow rowBiletsRow = ((BiletsRow)(this.NewRow()));
+            public BiletRow AddBiletRow(int Sold_bilets, System.DateTime Date_pokupki, int ID) {
+                BiletRow rowBiletRow = ((BiletRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_Bilet,
-                        Address_Bilet,
-                        Date_Bilet,
-                        Time_Bilet,
-                        Place_Bilet,
-                        Topic_Bilet,
-                        Category_Bilets,
-                        Price_Bilets};
-                rowBiletsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBiletsRow);
-                return rowBiletsRow;
+                        null,
+                        Sold_bilets,
+                        Date_pokupki,
+                        ID};
+                rowBiletRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBiletRow);
+                return rowBiletRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsRow FindByID_Bilet(int ID_Bilet) {
-                return ((BiletsRow)(this.Rows.Find(new object[] {
+            public BiletRow FindByID_Bilet(int ID_Bilet) {
+                return ((BiletRow)(this.Rows.Find(new object[] {
                             ID_Bilet})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                BiletsDataTable cln = ((BiletsDataTable)(base.Clone()));
+                BiletDataTable cln = ((BiletDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -708,20 +713,16 @@ namespace Bilet_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new BiletsDataTable();
+                return new BiletDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnID_Bilet = base.Columns["ID_Bilet"];
-                this.columnAddress_Bilet = base.Columns["Address_Bilet"];
-                this.columnDate_Bilet = base.Columns["Date_Bilet"];
-                this.columnTime_Bilet = base.Columns["Time_Bilet"];
-                this.columnPlace_Bilet = base.Columns["Place_Bilet"];
-                this.columnTopic_Bilet = base.Columns["Topic_Bilet"];
-                this.columnCategory_Bilets = base.Columns["Category_Bilets"];
-                this.columnPrice_Bilets = base.Columns["Price_Bilets"];
+                this.columnSold_bilets = base.Columns["Sold bilets"];
+                this.columnDate_pokupki = base.Columns["Date_pokupki"];
+                this.columnID = base.Columns["ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -729,54 +730,46 @@ namespace Bilet_System {
             private void InitClass() {
                 this.columnID_Bilet = new global::System.Data.DataColumn("ID_Bilet", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_Bilet);
-                this.columnAddress_Bilet = new global::System.Data.DataColumn("Address_Bilet", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAddress_Bilet);
-                this.columnDate_Bilet = new global::System.Data.DataColumn("Date_Bilet", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate_Bilet);
-                this.columnTime_Bilet = new global::System.Data.DataColumn("Time_Bilet", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTime_Bilet);
-                this.columnPlace_Bilet = new global::System.Data.DataColumn("Place_Bilet", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPlace_Bilet);
-                this.columnTopic_Bilet = new global::System.Data.DataColumn("Topic_Bilet", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTopic_Bilet);
-                this.columnCategory_Bilets = new global::System.Data.DataColumn("Category_Bilets", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCategory_Bilets);
-                this.columnPrice_Bilets = new global::System.Data.DataColumn("Price_Bilets", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrice_Bilets);
+                this.columnSold_bilets = new global::System.Data.DataColumn("Sold bilets", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSold_bilets);
+                this.columnDate_pokupki = new global::System.Data.DataColumn("Date_pokupki", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate_pokupki);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Bilet}, true));
+                this.columnID_Bilet.AutoIncrement = true;
+                this.columnID_Bilet.AutoIncrementSeed = -1;
+                this.columnID_Bilet.AutoIncrementStep = -1;
                 this.columnID_Bilet.AllowDBNull = false;
+                this.columnID_Bilet.ReadOnly = true;
                 this.columnID_Bilet.Unique = true;
-                this.columnAddress_Bilet.MaxLength = 100;
-                this.columnPlace_Bilet.MaxLength = 100;
-                this.columnTopic_Bilet.MaxLength = 200;
-                this.columnCategory_Bilets.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsRow NewBiletsRow() {
-                return ((BiletsRow)(this.NewRow()));
+            public BiletRow NewBiletRow() {
+                return ((BiletRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new BiletsRow(builder);
+                return new BiletRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(BiletsRow);
+                return typeof(BiletRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.BiletsRowChanged != null)) {
-                    this.BiletsRowChanged(this, new BiletsRowChangeEvent(((BiletsRow)(e.Row)), e.Action));
+                if ((this.BiletRowChanged != null)) {
+                    this.BiletRowChanged(this, new BiletRowChangeEvent(((BiletRow)(e.Row)), e.Action));
                 }
             }
             
@@ -784,8 +777,8 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.BiletsRowChanging != null)) {
-                    this.BiletsRowChanging(this, new BiletsRowChangeEvent(((BiletsRow)(e.Row)), e.Action));
+                if ((this.BiletRowChanging != null)) {
+                    this.BiletRowChanging(this, new BiletRowChangeEvent(((BiletRow)(e.Row)), e.Action));
                 }
             }
             
@@ -793,8 +786,8 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.BiletsRowDeleted != null)) {
-                    this.BiletsRowDeleted(this, new BiletsRowChangeEvent(((BiletsRow)(e.Row)), e.Action));
+                if ((this.BiletRowDeleted != null)) {
+                    this.BiletRowDeleted(this, new BiletRowChangeEvent(((BiletRow)(e.Row)), e.Action));
                 }
             }
             
@@ -802,14 +795,14 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.BiletsRowDeleting != null)) {
-                    this.BiletsRowDeleting(this, new BiletsRowChangeEvent(((BiletsRow)(e.Row)), e.Action));
+                if ((this.BiletRowDeleting != null)) {
+                    this.BiletRowDeleting(this, new BiletRowChangeEvent(((BiletRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveBiletsRow(BiletsRow row) {
+            public void RemoveBiletRow(BiletRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -836,7 +829,7 @@ namespace Bilet_System {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "BiletsDataTable";
+                attribute2.FixedValue = "BiletDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -882,16 +875,14 @@ namespace Bilet_System {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Cancellation_of_the_EventDataTable : global::System.Data.TypedTableBase<Cancellation_of_the_EventRow> {
+        public partial class Cancellation_of_the_eventDataTable : global::System.Data.TypedTableBase<Cancellation_of_the_eventRow> {
             
             private global::System.Data.DataColumn columnID_Event_Card;
             
-            private global::System.Data.DataColumn columnID_Bilet;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventDataTable() {
-                this.TableName = "Cancellation_of_the_Event";
+            public Cancellation_of_the_eventDataTable() {
+                this.TableName = "Cancellation_of_the_event";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -899,7 +890,7 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Cancellation_of_the_EventDataTable(global::System.Data.DataTable table) {
+            internal Cancellation_of_the_eventDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -916,7 +907,7 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Cancellation_of_the_EventDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Cancellation_of_the_eventDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -931,14 +922,6 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ID_BiletColumn {
-                get {
-                    return this.columnID_Bilet;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -948,53 +931,52 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventRow this[int index] {
+            public Cancellation_of_the_eventRow this[int index] {
                 get {
-                    return ((Cancellation_of_the_EventRow)(this.Rows[index]));
+                    return ((Cancellation_of_the_eventRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Cancellation_of_the_EventRowChangeEventHandler Cancellation_of_the_EventRowChanging;
+            public event Cancellation_of_the_eventRowChangeEventHandler Cancellation_of_the_eventRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Cancellation_of_the_EventRowChangeEventHandler Cancellation_of_the_EventRowChanged;
+            public event Cancellation_of_the_eventRowChangeEventHandler Cancellation_of_the_eventRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Cancellation_of_the_EventRowChangeEventHandler Cancellation_of_the_EventRowDeleting;
+            public event Cancellation_of_the_eventRowChangeEventHandler Cancellation_of_the_eventRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Cancellation_of_the_EventRowChangeEventHandler Cancellation_of_the_EventRowDeleted;
+            public event Cancellation_of_the_eventRowChangeEventHandler Cancellation_of_the_eventRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddCancellation_of_the_EventRow(Cancellation_of_the_EventRow row) {
+            public void AddCancellation_of_the_eventRow(Cancellation_of_the_eventRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventRow AddCancellation_of_the_EventRow(int ID_Event_Card, int ID_Bilet) {
-                Cancellation_of_the_EventRow rowCancellation_of_the_EventRow = ((Cancellation_of_the_EventRow)(this.NewRow()));
+            public Cancellation_of_the_eventRow AddCancellation_of_the_eventRow(int ID_Event_Card) {
+                Cancellation_of_the_eventRow rowCancellation_of_the_eventRow = ((Cancellation_of_the_eventRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_Event_Card,
-                        ID_Bilet};
-                rowCancellation_of_the_EventRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCancellation_of_the_EventRow);
-                return rowCancellation_of_the_EventRow;
+                        ID_Event_Card};
+                rowCancellation_of_the_eventRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCancellation_of_the_eventRow);
+                return rowCancellation_of_the_eventRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventRow FindByID_Event_Card(int ID_Event_Card) {
-                return ((Cancellation_of_the_EventRow)(this.Rows.Find(new object[] {
+            public Cancellation_of_the_eventRow FindByID_Event_Card(int ID_Event_Card) {
+                return ((Cancellation_of_the_eventRow)(this.Rows.Find(new object[] {
                             ID_Event_Card})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Cancellation_of_the_EventDataTable cln = ((Cancellation_of_the_EventDataTable)(base.Clone()));
+                Cancellation_of_the_eventDataTable cln = ((Cancellation_of_the_eventDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1002,14 +984,13 @@ namespace Bilet_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Cancellation_of_the_EventDataTable();
+                return new Cancellation_of_the_eventDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnID_Event_Card = base.Columns["ID_Event_Card"];
-                this.columnID_Bilet = base.Columns["ID_Bilet"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1017,8 +998,6 @@ namespace Bilet_System {
             private void InitClass() {
                 this.columnID_Event_Card = new global::System.Data.DataColumn("ID_Event_Card", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_Event_Card);
-                this.columnID_Bilet = new global::System.Data.DataColumn("ID_Bilet", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_Bilet);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Event_Card}, true));
                 this.columnID_Event_Card.AllowDBNull = false;
@@ -1027,28 +1006,28 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventRow NewCancellation_of_the_EventRow() {
-                return ((Cancellation_of_the_EventRow)(this.NewRow()));
+            public Cancellation_of_the_eventRow NewCancellation_of_the_eventRow() {
+                return ((Cancellation_of_the_eventRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Cancellation_of_the_EventRow(builder);
+                return new Cancellation_of_the_eventRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Cancellation_of_the_EventRow);
+                return typeof(Cancellation_of_the_eventRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Cancellation_of_the_EventRowChanged != null)) {
-                    this.Cancellation_of_the_EventRowChanged(this, new Cancellation_of_the_EventRowChangeEvent(((Cancellation_of_the_EventRow)(e.Row)), e.Action));
+                if ((this.Cancellation_of_the_eventRowChanged != null)) {
+                    this.Cancellation_of_the_eventRowChanged(this, new Cancellation_of_the_eventRowChangeEvent(((Cancellation_of_the_eventRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1056,8 +1035,8 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Cancellation_of_the_EventRowChanging != null)) {
-                    this.Cancellation_of_the_EventRowChanging(this, new Cancellation_of_the_EventRowChangeEvent(((Cancellation_of_the_EventRow)(e.Row)), e.Action));
+                if ((this.Cancellation_of_the_eventRowChanging != null)) {
+                    this.Cancellation_of_the_eventRowChanging(this, new Cancellation_of_the_eventRowChangeEvent(((Cancellation_of_the_eventRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1065,8 +1044,8 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Cancellation_of_the_EventRowDeleted != null)) {
-                    this.Cancellation_of_the_EventRowDeleted(this, new Cancellation_of_the_EventRowChangeEvent(((Cancellation_of_the_EventRow)(e.Row)), e.Action));
+                if ((this.Cancellation_of_the_eventRowDeleted != null)) {
+                    this.Cancellation_of_the_eventRowDeleted(this, new Cancellation_of_the_eventRowChangeEvent(((Cancellation_of_the_eventRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1074,14 +1053,14 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Cancellation_of_the_EventRowDeleting != null)) {
-                    this.Cancellation_of_the_EventRowDeleting(this, new Cancellation_of_the_EventRowChangeEvent(((Cancellation_of_the_EventRow)(e.Row)), e.Action));
+                if ((this.Cancellation_of_the_eventRowDeleting != null)) {
+                    this.Cancellation_of_the_eventRowDeleting(this, new Cancellation_of_the_eventRowChangeEvent(((Cancellation_of_the_eventRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveCancellation_of_the_EventRow(Cancellation_of_the_EventRow row) {
+            public void RemoveCancellation_of_the_eventRow(Cancellation_of_the_eventRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1108,7 +1087,7 @@ namespace Bilet_System {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Cancellation_of_the_EventDataTable";
+                attribute2.FixedValue = "Cancellation_of_the_eventDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1160,13 +1139,21 @@ namespace Bilet_System {
             
             private global::System.Data.DataColumn columnName_Event_Card;
             
-            private global::System.Data.DataColumn columnAmount_of_visitors;
-            
             private global::System.Data.DataColumn columnCategory_Bilets;
             
-            private global::System.Data.DataColumn columnPrice_Bilets;
+            private global::System.Data.DataColumn columnAmount_of_bilets;
             
-            private global::System.Data.DataColumn columnAnalytics_Bilets;
+            private global::System.Data.DataColumn columnTopic_Bilet;
+            
+            private global::System.Data.DataColumn columnAddress_Bilet;
+            
+            private global::System.Data.DataColumn columnPlace_Bilet;
+            
+            private global::System.Data.DataColumn columnDate_Bilet;
+            
+            private global::System.Data.DataColumn columnTime_Bilet;
+            
+            private global::System.Data.DataColumn columnPrice_Bilets;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1219,14 +1206,6 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Amount_of_visitorsColumn {
-                get {
-                    return this.columnAmount_of_visitors;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Category_BiletsColumn {
                 get {
                     return this.columnCategory_Bilets;
@@ -1235,17 +1214,57 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Price_BiletsColumn {
+            public global::System.Data.DataColumn Amount_of_biletsColumn {
                 get {
-                    return this.columnPrice_Bilets;
+                    return this.columnAmount_of_bilets;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Analytics_BiletsColumn {
+            public global::System.Data.DataColumn Topic_BiletColumn {
                 get {
-                    return this.columnAnalytics_Bilets;
+                    return this.columnTopic_Bilet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Address_BiletColumn {
+                get {
+                    return this.columnAddress_Bilet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Place_BiletColumn {
+                get {
+                    return this.columnPlace_Bilet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Date_BiletColumn {
+                get {
+                    return this.columnDate_Bilet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Time_BiletColumn {
+                get {
+                    return this.columnTime_Bilet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Price_BiletsColumn {
+                get {
+                    return this.columnPrice_Bilets;
                 }
             }
             
@@ -1286,15 +1305,19 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Event_CardRow AddEvent_CardRow(int ID_Event_Card, string Name_Event_Card, int Amount_of_visitors, string Category_Bilets, int Price_Bilets, string Analytics_Bilets) {
+            public Event_CardRow AddEvent_CardRow(string Name_Event_Card, string Category_Bilets, int Amount_of_bilets, string Topic_Bilet, string Address_Bilet, string Place_Bilet, System.DateTime Date_Bilet, System.TimeSpan Time_Bilet, int Price_Bilets) {
                 Event_CardRow rowEvent_CardRow = ((Event_CardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_Event_Card,
+                        null,
                         Name_Event_Card,
-                        Amount_of_visitors,
                         Category_Bilets,
-                        Price_Bilets,
-                        Analytics_Bilets};
+                        Amount_of_bilets,
+                        Topic_Bilet,
+                        Address_Bilet,
+                        Place_Bilet,
+                        Date_Bilet,
+                        Time_Bilet,
+                        Price_Bilets};
                 rowEvent_CardRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEvent_CardRow);
                 return rowEvent_CardRow;
@@ -1326,10 +1349,14 @@ namespace Bilet_System {
             internal void InitVars() {
                 this.columnID_Event_Card = base.Columns["ID_Event_Card"];
                 this.columnName_Event_Card = base.Columns["Name_Event_Card"];
-                this.columnAmount_of_visitors = base.Columns["Amount_of_visitors"];
                 this.columnCategory_Bilets = base.Columns["Category_Bilets"];
+                this.columnAmount_of_bilets = base.Columns["Amount_of_bilets"];
+                this.columnTopic_Bilet = base.Columns["Topic_Bilet"];
+                this.columnAddress_Bilet = base.Columns["Address_Bilet"];
+                this.columnPlace_Bilet = base.Columns["Place_Bilet"];
+                this.columnDate_Bilet = base.Columns["Date_Bilet"];
+                this.columnTime_Bilet = base.Columns["Time_Bilet"];
                 this.columnPrice_Bilets = base.Columns["Price_Bilets"];
-                this.columnAnalytics_Bilets = base.Columns["Analytics_Bilets"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1339,21 +1366,35 @@ namespace Bilet_System {
                 base.Columns.Add(this.columnID_Event_Card);
                 this.columnName_Event_Card = new global::System.Data.DataColumn("Name_Event_Card", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName_Event_Card);
-                this.columnAmount_of_visitors = new global::System.Data.DataColumn("Amount_of_visitors", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmount_of_visitors);
                 this.columnCategory_Bilets = new global::System.Data.DataColumn("Category_Bilets", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory_Bilets);
+                this.columnAmount_of_bilets = new global::System.Data.DataColumn("Amount_of_bilets", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount_of_bilets);
+                this.columnTopic_Bilet = new global::System.Data.DataColumn("Topic_Bilet", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTopic_Bilet);
+                this.columnAddress_Bilet = new global::System.Data.DataColumn("Address_Bilet", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddress_Bilet);
+                this.columnPlace_Bilet = new global::System.Data.DataColumn("Place_Bilet", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlace_Bilet);
+                this.columnDate_Bilet = new global::System.Data.DataColumn("Date_Bilet", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate_Bilet);
+                this.columnTime_Bilet = new global::System.Data.DataColumn("Time_Bilet", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTime_Bilet);
                 this.columnPrice_Bilets = new global::System.Data.DataColumn("Price_Bilets", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice_Bilets);
-                this.columnAnalytics_Bilets = new global::System.Data.DataColumn("Analytics_Bilets", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAnalytics_Bilets);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Event_Card}, true));
+                this.columnID_Event_Card.AutoIncrement = true;
+                this.columnID_Event_Card.AutoIncrementSeed = -1;
+                this.columnID_Event_Card.AutoIncrementStep = -1;
                 this.columnID_Event_Card.AllowDBNull = false;
+                this.columnID_Event_Card.ReadOnly = true;
                 this.columnID_Event_Card.Unique = true;
                 this.columnName_Event_Card.MaxLength = 50;
                 this.columnCategory_Bilets.MaxLength = 50;
-                this.columnAnalytics_Bilets.MaxLength = 2147483647;
+                this.columnTopic_Bilet.MaxLength = 200;
+                this.columnAddress_Bilet.MaxLength = 100;
+                this.columnPlace_Bilet.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1607,14 +1648,20 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PokupatelRow AddPokupatelRow(int ID, string Familia, string Imya, string Otchestvo, int ID_Bilet) {
+            public PokupatelRow AddPokupatelRow(UsersRow parentUsersRowByFK_Pokupatel_Users, string Familia, string Imya, string Otchestvo, BiletRow parentBiletRowByFK_Pokupatel_Bilet) {
                 PokupatelRow rowPokupatelRow = ((PokupatelRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         Familia,
                         Imya,
                         Otchestvo,
-                        ID_Bilet};
+                        null};
+                if ((parentUsersRowByFK_Pokupatel_Users != null)) {
+                    columnValuesArray[0] = parentUsersRowByFK_Pokupatel_Users[0];
+                }
+                if ((parentBiletRowByFK_Pokupatel_Bilet != null)) {
+                    columnValuesArray[4] = parentBiletRowByFK_Pokupatel_Bilet[0];
+                }
                 rowPokupatelRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPokupatelRow);
                 return rowPokupatelRow;
@@ -1944,16 +1991,22 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProdawecRow AddProdawecRow(int ID, string Familia, string Imya, string Otchestvo, string Passport_Num_Series, System.DateTime Date_of_Birth, int ID_Bilet) {
+            public ProdawecRow AddProdawecRow(UsersRow parentUsersRowByFK_Prodawec_Users, string Familia, string Imya, string Otchestvo, string Passport_Num_Series, System.DateTime Date_of_Birth, BiletRow parentBiletRowByFK_Prodawec_Bilet) {
                 ProdawecRow rowProdawecRow = ((ProdawecRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         Familia,
                         Imya,
                         Otchestvo,
                         Passport_Num_Series,
                         Date_of_Birth,
-                        ID_Bilet};
+                        null};
+                if ((parentUsersRowByFK_Prodawec_Users != null)) {
+                    columnValuesArray[0] = parentUsersRowByFK_Prodawec_Users[0];
+                }
+                if ((parentBiletRowByFK_Prodawec_Bilet != null)) {
+                    columnValuesArray[6] = parentBiletRowByFK_Prodawec_Bilet[0];
+                }
                 rowProdawecRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProdawecRow);
                 return rowProdawecRow;
@@ -2527,10 +2580,10 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RolesRow AddRolesRow(int ID, string Title) {
+            public RolesRow AddRolesRow(string Title) {
                 RolesRow rowRolesRow = ((RolesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         Title};
                 rowRolesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRolesRow);
@@ -2574,7 +2627,11 @@ namespace Bilet_System {
                 base.Columns.Add(this.columnTitle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnTitle.MaxLength = 40;
             }
@@ -2820,13 +2877,16 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UsersRow AddUsersRow(int ID, string Email, string Password, int IDRole) {
+            public UsersRow AddUsersRow(string Email, string Password, RolesRow parentRolesRowByFK_Users_Roles) {
                 UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         Email,
                         Password,
-                        IDRole};
+                        null};
+                if ((parentRolesRowByFK_Users_Roles != null)) {
+                    columnValuesArray[3] = parentRolesRowByFK_Users_Roles[0];
+                }
                 rowUsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsersRow);
                 return rowUsersRow;
@@ -2875,13 +2935,14 @@ namespace Bilet_System {
                 base.Columns.Add(this.columnIDRole);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
-                this.columnEmail.AllowDBNull = false;
                 this.columnEmail.MaxLength = 100;
-                this.columnPassword.AllowDBNull = false;
                 this.columnPassword.MaxLength = 50;
-                this.columnIDRole.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3011,277 +3072,180 @@ namespace Bilet_System {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class BiletsRow : global::System.Data.DataRow {
+        public partial class BiletRow : global::System.Data.DataRow {
             
-            private BiletsDataTable tableBilets;
+            private BiletDataTable tableBilet;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal BiletsRow(global::System.Data.DataRowBuilder rb) : 
+            internal BiletRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableBilets = ((BiletsDataTable)(this.Table));
+                this.tableBilet = ((BiletDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID_Bilet {
                 get {
-                    return ((int)(this[this.tableBilets.ID_BiletColumn]));
+                    return ((int)(this[this.tableBilet.ID_BiletColumn]));
                 }
                 set {
-                    this[this.tableBilets.ID_BiletColumn] = value;
+                    this[this.tableBilet.ID_BiletColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Address_Bilet {
+            public int Sold_bilets {
                 get {
                     try {
-                        return ((string)(this[this.tableBilets.Address_BiletColumn]));
+                        return ((int)(this[this.tableBilet.Sold_biletsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Address_Bilet\' в таблице \'Bilets\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Sold bilets\' в таблице \'Bilet\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBilets.Address_BiletColumn] = value;
+                    this[this.tableBilet.Sold_biletsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime Date_Bilet {
+            public System.DateTime Date_pokupki {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableBilets.Date_BiletColumn]));
+                        return ((global::System.DateTime)(this[this.tableBilet.Date_pokupkiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date_Bilet\' в таблице \'Bilets\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date_pokupki\' в таблице \'Bilet\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBilets.Date_BiletColumn] = value;
+                    this[this.tableBilet.Date_pokupkiColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan Time_Bilet {
+            public int ID {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableBilets.Time_BiletColumn]));
+                        return ((int)(this[this.tableBilet.IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Time_Bilet\' в таблице \'Bilets\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID\' в таблице \'Bilet\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBilets.Time_BiletColumn] = value;
+                    this[this.tableBilet.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Place_Bilet {
+            public Refund_BiletsRow Refund_BiletsRow {
                 get {
-                    try {
-                        return ((string)(this[this.tableBilets.Place_BiletColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Place_Bilet\' в таблице \'Bilets\' равно DBNull.", e);
-                    }
+                    return ((Refund_BiletsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Bilet_Refund_Bilets"])));
                 }
                 set {
-                    this[this.tableBilets.Place_BiletColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Bilet_Refund_Bilets"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Topic_Bilet {
-                get {
-                    try {
-                        return ((string)(this[this.tableBilets.Topic_BiletColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Topic_Bilet\' в таблице \'Bilets\' равно DBNull.", e);
-                    }
+            public bool IsSold_biletsNull() {
+                return this.IsNull(this.tableBilet.Sold_biletsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSold_biletsNull() {
+                this[this.tableBilet.Sold_biletsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDate_pokupkiNull() {
+                return this.IsNull(this.tableBilet.Date_pokupkiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDate_pokupkiNull() {
+                this[this.tableBilet.Date_pokupkiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDNull() {
+                return this.IsNull(this.tableBilet.IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDNull() {
+                this[this.tableBilet.IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PokupatelRow[] GetPokupatelRows() {
+                if ((this.Table.ChildRelations["FK_Pokupatel_Bilet"] == null)) {
+                    return new PokupatelRow[0];
                 }
-                set {
-                    this[this.tableBilets.Topic_BiletColumn] = value;
+                else {
+                    return ((PokupatelRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pokupatel_Bilet"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Category_Bilets {
-                get {
-                    try {
-                        return ((string)(this[this.tableBilets.Category_BiletsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Category_Bilets\' в таблице \'Bilets\' равно DBNull.", e);
-                    }
+            public ProdawecRow[] GetProdawecRows() {
+                if ((this.Table.ChildRelations["FK_Prodawec_Bilet"] == null)) {
+                    return new ProdawecRow[0];
                 }
-                set {
-                    this[this.tableBilets.Category_BiletsColumn] = value;
+                else {
+                    return ((ProdawecRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Prodawec_Bilet"])));
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Price_Bilets {
-                get {
-                    try {
-                        return ((int)(this[this.tableBilets.Price_BiletsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Price_Bilets\' в таблице \'Bilets\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBilets.Price_BiletsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAddress_BiletNull() {
-                return this.IsNull(this.tableBilets.Address_BiletColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAddress_BiletNull() {
-                this[this.tableBilets.Address_BiletColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDate_BiletNull() {
-                return this.IsNull(this.tableBilets.Date_BiletColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDate_BiletNull() {
-                this[this.tableBilets.Date_BiletColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTime_BiletNull() {
-                return this.IsNull(this.tableBilets.Time_BiletColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTime_BiletNull() {
-                this[this.tableBilets.Time_BiletColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPlace_BiletNull() {
-                return this.IsNull(this.tableBilets.Place_BiletColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPlace_BiletNull() {
-                this[this.tableBilets.Place_BiletColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTopic_BiletNull() {
-                return this.IsNull(this.tableBilets.Topic_BiletColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTopic_BiletNull() {
-                this[this.tableBilets.Topic_BiletColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCategory_BiletsNull() {
-                return this.IsNull(this.tableBilets.Category_BiletsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCategory_BiletsNull() {
-                this[this.tableBilets.Category_BiletsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPrice_BiletsNull() {
-                return this.IsNull(this.tableBilets.Price_BiletsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPrice_BiletsNull() {
-                this[this.tableBilets.Price_BiletsColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Cancellation_of_the_EventRow : global::System.Data.DataRow {
+        public partial class Cancellation_of_the_eventRow : global::System.Data.DataRow {
             
-            private Cancellation_of_the_EventDataTable tableCancellation_of_the_Event;
+            private Cancellation_of_the_eventDataTable tableCancellation_of_the_event;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Cancellation_of_the_EventRow(global::System.Data.DataRowBuilder rb) : 
+            internal Cancellation_of_the_eventRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableCancellation_of_the_Event = ((Cancellation_of_the_EventDataTable)(this.Table));
+                this.tableCancellation_of_the_event = ((Cancellation_of_the_eventDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID_Event_Card {
                 get {
-                    return ((int)(this[this.tableCancellation_of_the_Event.ID_Event_CardColumn]));
+                    return ((int)(this[this.tableCancellation_of_the_event.ID_Event_CardColumn]));
                 }
                 set {
-                    this[this.tableCancellation_of_the_Event.ID_Event_CardColumn] = value;
+                    this[this.tableCancellation_of_the_event.ID_Event_CardColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID_Bilet {
-                get {
-                    try {
-                        return ((int)(this[this.tableCancellation_of_the_Event.ID_BiletColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Bilet\' в таблице \'Cancellation_of_the_Event\' равно DBNul" +
-                                "l.", e);
-                    }
+            public Event_CardRow[] GetEvent_CardRows() {
+                if ((this.Table.ChildRelations["FK_Event_Card_Cancellation_of_the_Event"] == null)) {
+                    return new Event_CardRow[0];
                 }
-                set {
-                    this[this.tableCancellation_of_the_Event.ID_BiletColumn] = value;
+                else {
+                    return ((Event_CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Event_Card_Cancellation_of_the_Event"])));
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsID_BiletNull() {
-                return this.IsNull(this.tableCancellation_of_the_Event.ID_BiletColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetID_BiletNull() {
-                this[this.tableCancellation_of_the_Event.ID_BiletColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3328,22 +3292,6 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Amount_of_visitors {
-                get {
-                    try {
-                        return ((int)(this[this.tableEvent_Card.Amount_of_visitorsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Amount_of_visitors\' в таблице \'Event_Card\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableEvent_Card.Amount_of_visitorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Category_Bilets {
                 get {
                     try {
@@ -3355,6 +3303,102 @@ namespace Bilet_System {
                 }
                 set {
                     this[this.tableEvent_Card.Category_BiletsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Amount_of_bilets {
+                get {
+                    try {
+                        return ((int)(this[this.tableEvent_Card.Amount_of_biletsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Amount_of_bilets\' в таблице \'Event_Card\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEvent_Card.Amount_of_biletsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Topic_Bilet {
+                get {
+                    try {
+                        return ((string)(this[this.tableEvent_Card.Topic_BiletColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Topic_Bilet\' в таблице \'Event_Card\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEvent_Card.Topic_BiletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Address_Bilet {
+                get {
+                    try {
+                        return ((string)(this[this.tableEvent_Card.Address_BiletColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Address_Bilet\' в таблице \'Event_Card\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEvent_Card.Address_BiletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Place_Bilet {
+                get {
+                    try {
+                        return ((string)(this[this.tableEvent_Card.Place_BiletColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Place_Bilet\' в таблице \'Event_Card\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEvent_Card.Place_BiletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Date_Bilet {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEvent_Card.Date_BiletColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date_Bilet\' в таблице \'Event_Card\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEvent_Card.Date_BiletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.TimeSpan Time_Bilet {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this.tableEvent_Card.Time_BiletColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Time_Bilet\' в таблице \'Event_Card\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEvent_Card.Time_BiletColumn] = value;
                 }
             }
             
@@ -3376,17 +3420,12 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Analytics_Bilets {
+            public Cancellation_of_the_eventRow Cancellation_of_the_eventRow {
                 get {
-                    try {
-                        return ((string)(this[this.tableEvent_Card.Analytics_BiletsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Analytics_Bilets\' в таблице \'Event_Card\' равно DBNull.", e);
-                    }
+                    return ((Cancellation_of_the_eventRow)(this.GetParentRow(this.Table.ParentRelations["FK_Event_Card_Cancellation_of_the_Event"])));
                 }
                 set {
-                    this[this.tableEvent_Card.Analytics_BiletsColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Event_Card_Cancellation_of_the_Event"]);
                 }
             }
             
@@ -3404,18 +3443,6 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAmount_of_visitorsNull() {
-                return this.IsNull(this.tableEvent_Card.Amount_of_visitorsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAmount_of_visitorsNull() {
-                this[this.tableEvent_Card.Amount_of_visitorsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCategory_BiletsNull() {
                 return this.IsNull(this.tableEvent_Card.Category_BiletsColumn);
             }
@@ -3428,6 +3455,78 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAmount_of_biletsNull() {
+                return this.IsNull(this.tableEvent_Card.Amount_of_biletsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAmount_of_biletsNull() {
+                this[this.tableEvent_Card.Amount_of_biletsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTopic_BiletNull() {
+                return this.IsNull(this.tableEvent_Card.Topic_BiletColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTopic_BiletNull() {
+                this[this.tableEvent_Card.Topic_BiletColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAddress_BiletNull() {
+                return this.IsNull(this.tableEvent_Card.Address_BiletColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAddress_BiletNull() {
+                this[this.tableEvent_Card.Address_BiletColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPlace_BiletNull() {
+                return this.IsNull(this.tableEvent_Card.Place_BiletColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPlace_BiletNull() {
+                this[this.tableEvent_Card.Place_BiletColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDate_BiletNull() {
+                return this.IsNull(this.tableEvent_Card.Date_BiletColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDate_BiletNull() {
+                this[this.tableEvent_Card.Date_BiletColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTime_BiletNull() {
+                return this.IsNull(this.tableEvent_Card.Time_BiletColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTime_BiletNull() {
+                this[this.tableEvent_Card.Time_BiletColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPrice_BiletsNull() {
                 return this.IsNull(this.tableEvent_Card.Price_BiletsColumn);
             }
@@ -3436,18 +3535,6 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPrice_BiletsNull() {
                 this[this.tableEvent_Card.Price_BiletsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAnalytics_BiletsNull() {
-                return this.IsNull(this.tableEvent_Card.Analytics_BiletsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAnalytics_BiletsNull() {
-                this[this.tableEvent_Card.Analytics_BiletsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3537,6 +3624,28 @@ namespace Bilet_System {
                 }
                 set {
                     this[this.tablePokupatel.ID_BiletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BiletRow BiletRow {
+                get {
+                    return ((BiletRow)(this.GetParentRow(this.Table.ParentRelations["FK_Pokupatel_Bilet"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Pokupatel_Bilet"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Pokupatel_Users"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Pokupatel_Users"]);
                 }
             }
             
@@ -3707,6 +3816,28 @@ namespace Bilet_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BiletRow BiletRow {
+                get {
+                    return ((BiletRow)(this.GetParentRow(this.Table.ParentRelations["FK_Prodawec_Bilet"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Prodawec_Bilet"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Prodawec_Users"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Prodawec_Users"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFamiliaNull() {
                 return this.IsNull(this.tableProdawec.FamiliaColumn);
             }
@@ -3847,6 +3978,17 @@ namespace Bilet_System {
             public void SetSum_ReturnNull() {
                 this[this.tableRefund_Bilets.Sum_ReturnColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BiletRow[] GetBiletRows() {
+                if ((this.Table.ChildRelations["FK_Bilet_Refund_Bilets"] == null)) {
+                    return new BiletRow[0];
+                }
+                else {
+                    return ((BiletRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Bilet_Refund_Bilets"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3901,6 +4043,17 @@ namespace Bilet_System {
             public void SetTitleNull() {
                 this[this.tableRoles.TitleColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UsersRow[] GetUsersRows() {
+                if ((this.Table.ChildRelations["FK_Users_Roles"] == null)) {
+                    return new UsersRow[0];
+                }
+                else {
+                    return ((UsersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Users_Roles"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3932,7 +4085,12 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Email {
                 get {
-                    return ((string)(this[this.tableUsers.EmailColumn]));
+                    try {
+                        return ((string)(this[this.tableUsers.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Email\' в таблице \'Users\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableUsers.EmailColumn] = value;
@@ -3943,7 +4101,12 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Password {
                 get {
-                    return ((string)(this[this.tableUsers.PasswordColumn]));
+                    try {
+                        return ((string)(this[this.tableUsers.PasswordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Password\' в таблице \'Users\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableUsers.PasswordColumn] = value;
@@ -3954,10 +4117,84 @@ namespace Bilet_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int IDRole {
                 get {
-                    return ((int)(this[this.tableUsers.IDRoleColumn]));
+                    try {
+                        return ((int)(this[this.tableUsers.IDRoleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'IDRole\' в таблице \'Users\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableUsers.IDRoleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public RolesRow RolesRow {
+                get {
+                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Users_Roles"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Users_Roles"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tableUsers.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tableUsers.EmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPasswordNull() {
+                return this.IsNull(this.tableUsers.PasswordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPasswordNull() {
+                this[this.tableUsers.PasswordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDRoleNull() {
+                return this.IsNull(this.tableUsers.IDRoleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDRoleNull() {
+                this[this.tableUsers.IDRoleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PokupatelRow[] GetPokupatelRows() {
+                if ((this.Table.ChildRelations["FK_Pokupatel_Users"] == null)) {
+                    return new PokupatelRow[0];
+                }
+                else {
+                    return ((PokupatelRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pokupatel_Users"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ProdawecRow[] GetProdawecRows() {
+                if ((this.Table.ChildRelations["FK_Prodawec_Users"] == null)) {
+                    return new ProdawecRow[0];
+                }
+                else {
+                    return ((ProdawecRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Prodawec_Users"])));
                 }
             }
         }
@@ -3966,22 +4203,22 @@ namespace Bilet_System {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class BiletsRowChangeEvent : global::System.EventArgs {
+        public class BiletRowChangeEvent : global::System.EventArgs {
             
-            private BiletsRow eventRow;
+            private BiletRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsRowChangeEvent(BiletsRow row, global::System.Data.DataRowAction action) {
+            public BiletRowChangeEvent(BiletRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BiletsRow Row {
+            public BiletRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4000,22 +4237,22 @@ namespace Bilet_System {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Cancellation_of_the_EventRowChangeEvent : global::System.EventArgs {
+        public class Cancellation_of_the_eventRowChangeEvent : global::System.EventArgs {
             
-            private Cancellation_of_the_EventRow eventRow;
+            private Cancellation_of_the_eventRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventRowChangeEvent(Cancellation_of_the_EventRow row, global::System.Data.DataRowAction action) {
+            public Cancellation_of_the_eventRowChangeEvent(Cancellation_of_the_eventRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Cancellation_of_the_EventRow Row {
+            public Cancellation_of_the_eventRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4247,7 +4484,7 @@ namespace Bilet_System.Bilet_SystemDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class BiletsTableAdapter : global::System.ComponentModel.Component {
+    public partial class BiletTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4261,7 +4498,7 @@ namespace Bilet_System.Bilet_SystemDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public BiletsTableAdapter() {
+        public BiletTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4358,76 +4595,48 @@ namespace Bilet_System.Bilet_SystemDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Bilets";
+            tableMapping.DataSetTable = "Bilet";
             tableMapping.ColumnMappings.Add("ID_Bilet", "ID_Bilet");
-            tableMapping.ColumnMappings.Add("Address_Bilet", "Address_Bilet");
-            tableMapping.ColumnMappings.Add("Date_Bilet", "Date_Bilet");
-            tableMapping.ColumnMappings.Add("Time_Bilet", "Time_Bilet");
-            tableMapping.ColumnMappings.Add("Place_Bilet", "Place_Bilet");
-            tableMapping.ColumnMappings.Add("Topic_Bilet", "Topic_Bilet");
-            tableMapping.ColumnMappings.Add("Category_Bilets", "Category_Bilets");
-            tableMapping.ColumnMappings.Add("Price_Bilets", "Price_Bilets");
+            tableMapping.ColumnMappings.Add("Sold bilets", "Sold bilets");
+            tableMapping.ColumnMappings.Add("Date_pokupki", "Date_pokupki");
+            tableMapping.ColumnMappings.Add("ID", "ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Bilets] WHERE (([ID_Bilet] = @Original_ID_Bilet) AND ((@IsNull_Address_Bilet = 1 AND [Address_Bilet] IS NULL) OR ([Address_Bilet] = @Original_Address_Bilet)) AND ((@IsNull_Date_Bilet = 1 AND [Date_Bilet] IS NULL) OR ([Date_Bilet] = @Original_Date_Bilet)) AND ((@IsNull_Time_Bilet = 1 AND [Time_Bilet] IS NULL) OR ([Time_Bilet] = @Original_Time_Bilet)) AND ((@IsNull_Place_Bilet = 1 AND [Place_Bilet] IS NULL) OR ([Place_Bilet] = @Original_Place_Bilet)) AND ((@IsNull_Topic_Bilet = 1 AND [Topic_Bilet] IS NULL) OR ([Topic_Bilet] = @Original_Topic_Bilet)) AND ((@IsNull_Category_Bilets = 1 AND [Category_Bilets] IS NULL) OR ([Category_Bilets] = @Original_Category_Bilets)) AND ((@IsNull_Price_Bilets = 1 AND [Price_Bilets] IS NULL) OR ([Price_Bilets] = @Original_Price_Bilets)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Bilet] WHERE (([ID_Bilet] = @Original_ID_Bilet) AND ((@IsNull_Sold_bilets = 1 AND [Sold bilets] IS NULL) OR ([Sold bilets] = @Original_Sold_bilets)) AND ((@IsNull_Date_pokupki = 1 AND [Date_pokupki] IS NULL) OR ([Date_pokupki] = @Original_Date_pokupki)) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Place_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Topic_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sold_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sold bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sold_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sold bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_pokupki", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_pokupki", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_pokupki", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_pokupki", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Bilets] ([ID_Bilet], [Address_Bilet], [Date_Bilet], [Time_Bilet], [Place_Bilet], [Topic_Bilet], [Category_Bilets], [Price_Bilets]) VALUES (@ID_Bilet, @Address_Bilet, @Date_Bilet, @Time_Bilet, @Place_Bilet, @Topic_Bilet, @Category_Bilets, @Price_Bilets);
-SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet, Category_Bilets, Price_Bilets FROM Bilets WHERE (ID_Bilet = @ID_Bilet)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Bilet] ([Sold bilets], [Date_pokupki], [ID]) VALUES (@Sold_bil" +
+                "ets, @Date_pokupki, @ID);\r\nSELECT ID_Bilet, [Sold bilets], Date_pokupki, ID FROM" +
+                " Bilet WHERE (ID_Bilet = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sold_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sold bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_pokupki", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_pokupki", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Bilets] SET [ID_Bilet] = @ID_Bilet, [Address_Bilet] = @Address_Bilet, [Date_Bilet] = @Date_Bilet, [Time_Bilet] = @Time_Bilet, [Place_Bilet] = @Place_Bilet, [Topic_Bilet] = @Topic_Bilet, [Category_Bilets] = @Category_Bilets, [Price_Bilets] = @Price_Bilets WHERE (([ID_Bilet] = @Original_ID_Bilet) AND ((@IsNull_Address_Bilet = 1 AND [Address_Bilet] IS NULL) OR ([Address_Bilet] = @Original_Address_Bilet)) AND ((@IsNull_Date_Bilet = 1 AND [Date_Bilet] IS NULL) OR ([Date_Bilet] = @Original_Date_Bilet)) AND ((@IsNull_Time_Bilet = 1 AND [Time_Bilet] IS NULL) OR ([Time_Bilet] = @Original_Time_Bilet)) AND ((@IsNull_Place_Bilet = 1 AND [Place_Bilet] IS NULL) OR ([Place_Bilet] = @Original_Place_Bilet)) AND ((@IsNull_Topic_Bilet = 1 AND [Topic_Bilet] IS NULL) OR ([Topic_Bilet] = @Original_Topic_Bilet)) AND ((@IsNull_Category_Bilets = 1 AND [Category_Bilets] IS NULL) OR ([Category_Bilets] = @Original_Category_Bilets)) AND ((@IsNull_Price_Bilets = 1 AND [Price_Bilets] IS NULL) OR ([Price_Bilets] = @Original_Price_Bilets)));
-SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet, Category_Bilets, Price_Bilets FROM Bilets WHERE (ID_Bilet = @ID_Bilet)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Bilet] SET [Sold bilets] = @Sold_bilets, [Date_pokupki] = @Date_pokupki, [ID] = @ID WHERE (([ID_Bilet] = @Original_ID_Bilet) AND ((@IsNull_Sold_bilets = 1 AND [Sold bilets] IS NULL) OR ([Sold bilets] = @Original_Sold_bilets)) AND ((@IsNull_Date_pokupki = 1 AND [Date_pokupki] IS NULL) OR ([Date_pokupki] = @Original_Date_pokupki)) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)));
+SELECT ID_Bilet, [Sold bilets], Date_pokupki, ID FROM Bilet WHERE (ID_Bilet = @ID_Bilet)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sold_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sold bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_pokupki", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_pokupki", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Place_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Topic_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sold_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sold bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sold_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sold bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_pokupki", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_pokupki", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_pokupki", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_pokupki", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Bilet", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4443,8 +4652,7 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet," +
-                " Category_Bilets, Price_Bilets FROM dbo.Bilets";
+            this._commandCollection[0].CommandText = "SELECT ID_Bilet, [Sold bilets], Date_pokupki, ID FROM dbo.Bilet";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4452,7 +4660,7 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Bilet_SystemDataSet.BiletsDataTable dataTable) {
+        public virtual int Fill(Bilet_SystemDataSet.BiletDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4465,9 +4673,9 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Bilet_SystemDataSet.BiletsDataTable GetData() {
+        public virtual Bilet_SystemDataSet.BiletDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Bilet_SystemDataSet.BiletsDataTable dataTable = new Bilet_SystemDataSet.BiletsDataTable();
+            Bilet_SystemDataSet.BiletDataTable dataTable = new Bilet_SystemDataSet.BiletDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4475,7 +4683,7 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Bilet_SystemDataSet.BiletsDataTable dataTable) {
+        public virtual int Update(Bilet_SystemDataSet.BiletDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -4483,7 +4691,7 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Bilet_SystemDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Bilets");
+            return this.Adapter.Update(dataSet, "Bilet");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4505,63 +4713,31 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Bilet, string Original_Address_Bilet, global::System.Nullable<global::System.DateTime> Original_Date_Bilet, global::System.Nullable<global::System.TimeSpan> Original_Time_Bilet, string Original_Place_Bilet, string Original_Topic_Bilet, string Original_Category_Bilets, global::System.Nullable<int> Original_Price_Bilets) {
+        public virtual int Delete(int Original_ID_Bilet, global::System.Nullable<int> Original_Sold_bilets, global::System.Nullable<global::System.DateTime> Original_Date_pokupki, global::System.Nullable<int> Original_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Bilet));
-            if ((Original_Address_Bilet == null)) {
+            if ((Original_Sold_bilets.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Sold_bilets.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Address_Bilet));
-            }
-            if ((Original_Date_Bilet.HasValue == true)) {
+            if ((Original_Date_pokupki.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Date_Bilet.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Date_pokupki.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Time_Bilet.HasValue == true)) {
+            if ((Original_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.TimeSpan)(Original_Time_Bilet.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ID.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Place_Bilet == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Place_Bilet));
-            }
-            if ((Original_Topic_Bilet == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Topic_Bilet));
-            }
-            if ((Original_Category_Bilets == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Category_Bilets));
-            }
-            if ((Original_Price_Bilets.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Price_Bilets.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4583,49 +4759,24 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID_Bilet, string Address_Bilet, global::System.Nullable<global::System.DateTime> Date_Bilet, global::System.Nullable<global::System.TimeSpan> Time_Bilet, string Place_Bilet, string Topic_Bilet, string Category_Bilets, global::System.Nullable<int> Price_Bilets) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_Bilet));
-            if ((Address_Bilet == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+        public virtual int Insert(global::System.Nullable<int> Sold_bilets, global::System.Nullable<global::System.DateTime> Date_pokupki, global::System.Nullable<int> ID) {
+            if ((Sold_bilets.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Sold_bilets.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Address_Bilet));
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Date_Bilet.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Date_Bilet.Value));
+            if ((Date_pokupki.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(Date_pokupki.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Time_Bilet.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.TimeSpan)(Time_Bilet.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Place_Bilet == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Place_Bilet));
-            }
-            if ((Topic_Bilet == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Topic_Bilet));
-            }
-            if ((Category_Bilets == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Category_Bilets));
-            }
-            if ((Price_Bilets.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Price_Bilets.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4647,123 +4798,51 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int ID_Bilet, 
-                    string Address_Bilet, 
-                    global::System.Nullable<global::System.DateTime> Date_Bilet, 
-                    global::System.Nullable<global::System.TimeSpan> Time_Bilet, 
-                    string Place_Bilet, 
-                    string Topic_Bilet, 
-                    string Category_Bilets, 
-                    global::System.Nullable<int> Price_Bilets, 
-                    int Original_ID_Bilet, 
-                    string Original_Address_Bilet, 
-                    global::System.Nullable<global::System.DateTime> Original_Date_Bilet, 
-                    global::System.Nullable<global::System.TimeSpan> Original_Time_Bilet, 
-                    string Original_Place_Bilet, 
-                    string Original_Topic_Bilet, 
-                    string Original_Category_Bilets, 
-                    global::System.Nullable<int> Original_Price_Bilets) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_Bilet));
-            if ((Address_Bilet == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+        public virtual int Update(global::System.Nullable<int> Sold_bilets, global::System.Nullable<global::System.DateTime> Date_pokupki, global::System.Nullable<int> ID, int Original_ID_Bilet, global::System.Nullable<int> Original_Sold_bilets, global::System.Nullable<global::System.DateTime> Original_Date_pokupki, global::System.Nullable<int> Original_ID, int ID_Bilet) {
+            if ((Sold_bilets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Sold_bilets.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Address_Bilet));
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Date_Bilet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Date_Bilet.Value));
+            if ((Date_pokupki.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(Date_pokupki.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Time_Bilet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.TimeSpan)(Time_Bilet.Value));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID_Bilet));
+            if ((Original_Sold_bilets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Sold_bilets.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Place_Bilet == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Place_Bilet));
-            }
-            if ((Topic_Bilet == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Topic_Bilet));
-            }
-            if ((Category_Bilets == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Original_Date_pokupki.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_Date_pokupki.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Category_Bilets));
-            }
-            if ((Price_Bilets.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Price_Bilets.Value));
-            }
-            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID_Bilet));
-            if ((Original_Address_Bilet == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((Original_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Address_Bilet));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_Date_Bilet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_Date_Bilet.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Time_Bilet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.TimeSpan)(Original_Time_Bilet.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Place_Bilet == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Place_Bilet));
-            }
-            if ((Original_Topic_Bilet == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Topic_Bilet));
-            }
-            if ((Original_Category_Bilets == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Category_Bilets));
-            }
-            if ((Original_Price_Bilets.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Price_Bilets.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ID_Bilet));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4784,8 +4863,8 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Address_Bilet, global::System.Nullable<global::System.DateTime> Date_Bilet, global::System.Nullable<global::System.TimeSpan> Time_Bilet, string Place_Bilet, string Topic_Bilet, string Category_Bilets, global::System.Nullable<int> Price_Bilets, int Original_ID_Bilet, string Original_Address_Bilet, global::System.Nullable<global::System.DateTime> Original_Date_Bilet, global::System.Nullable<global::System.TimeSpan> Original_Time_Bilet, string Original_Place_Bilet, string Original_Topic_Bilet, string Original_Category_Bilets, global::System.Nullable<int> Original_Price_Bilets) {
-            return this.Update(Original_ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet, Category_Bilets, Price_Bilets, Original_ID_Bilet, Original_Address_Bilet, Original_Date_Bilet, Original_Time_Bilet, Original_Place_Bilet, Original_Topic_Bilet, Original_Category_Bilets, Original_Price_Bilets);
+        public virtual int Update(global::System.Nullable<int> Sold_bilets, global::System.Nullable<global::System.DateTime> Date_pokupki, global::System.Nullable<int> ID, int Original_ID_Bilet, global::System.Nullable<int> Original_Sold_bilets, global::System.Nullable<global::System.DateTime> Original_Date_pokupki, global::System.Nullable<int> Original_ID) {
+            return this.Update(Sold_bilets, Date_pokupki, ID, Original_ID_Bilet, Original_Sold_bilets, Original_Date_pokupki, Original_ID, Original_ID_Bilet);
         }
     }
     
@@ -4798,7 +4877,7 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Cancellation_of_the_EventTableAdapter : global::System.ComponentModel.Component {
+    public partial class Cancellation_of_the_eventTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4812,7 +4891,7 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Cancellation_of_the_EventTableAdapter() {
+        public Cancellation_of_the_eventTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4909,37 +4988,30 @@ SELECT ID_Bilet, Address_Bilet, Date_Bilet, Time_Bilet, Place_Bilet, Topic_Bilet
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Cancellation_of_the_Event";
+            tableMapping.DataSetTable = "Cancellation_of_the_event";
             tableMapping.ColumnMappings.Add("ID_Event_Card", "ID_Event_Card");
-            tableMapping.ColumnMappings.Add("ID_Bilet", "ID_Bilet");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cancellation_of_the_Event] WHERE (([ID_Event_Card] = @Original" +
-                "_ID_Event_Card) AND ((@IsNull_ID_Bilet = 1 AND [ID_Bilet] IS NULL) OR ([ID_Bilet" +
-                "] = @Original_ID_Bilet)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cancellation_of_the_event] WHERE (([ID_Event_Card] = @Original" +
+                "_ID_Event_Card))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cancellation_of_the_Event] ([ID_Event_Card], [ID_Bilet]) VALUE" +
-                "S (@ID_Event_Card, @ID_Bilet);\r\nSELECT ID_Event_Card, ID_Bilet FROM Cancellation" +
-                "_of_the_Event WHERE (ID_Event_Card = @ID_Event_Card)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cancellation_of_the_event] ([ID_Event_Card]) VALUES (@ID_Event" +
+                "_Card);\r\nSELECT ID_Event_Card FROM Cancellation_of_the_event WHERE (ID_Event_Car" +
+                "d = @ID_Event_Card)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Cancellation_of_the_Event] SET [ID_Event_Card] = @ID_Event_Card, [ID_Bilet] = @ID_Bilet WHERE (([ID_Event_Card] = @Original_ID_Event_Card) AND ((@IsNull_ID_Bilet = 1 AND [ID_Bilet] IS NULL) OR ([ID_Bilet] = @Original_ID_Bilet)));
-SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Card = @ID_Event_Card)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Cancellation_of_the_event] SET [ID_Event_Card] = @ID_Event_Card WHE" +
+                "RE (([ID_Event_Card] = @Original_ID_Event_Card));\r\nSELECT ID_Event_Card FROM Can" +
+                "cellation_of_the_event WHERE (ID_Event_Card = @ID_Event_Card)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4955,7 +5027,7 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Event_Card, ID_Bilet FROM dbo.Cancellation_of_the_Event";
+            this._commandCollection[0].CommandText = "SELECT ID_Event_Card FROM dbo.Cancellation_of_the_event";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4963,7 +5035,7 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Bilet_SystemDataSet.Cancellation_of_the_EventDataTable dataTable) {
+        public virtual int Fill(Bilet_SystemDataSet.Cancellation_of_the_eventDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4976,9 +5048,9 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Bilet_SystemDataSet.Cancellation_of_the_EventDataTable GetData() {
+        public virtual Bilet_SystemDataSet.Cancellation_of_the_eventDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Bilet_SystemDataSet.Cancellation_of_the_EventDataTable dataTable = new Bilet_SystemDataSet.Cancellation_of_the_EventDataTable();
+            Bilet_SystemDataSet.Cancellation_of_the_eventDataTable dataTable = new Bilet_SystemDataSet.Cancellation_of_the_eventDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4986,7 +5058,7 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Bilet_SystemDataSet.Cancellation_of_the_EventDataTable dataTable) {
+        public virtual int Update(Bilet_SystemDataSet.Cancellation_of_the_eventDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -4994,7 +5066,7 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Bilet_SystemDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Cancellation_of_the_Event");
+            return this.Adapter.Update(dataSet, "Cancellation_of_the_event");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5016,16 +5088,8 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Event_Card, global::System.Nullable<int> Original_ID_Bilet) {
+        public virtual int Delete(int Original_ID_Event_Card) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Event_Card));
-            if ((Original_ID_Bilet.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ID_Bilet.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5046,14 +5110,8 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID_Event_Card, global::System.Nullable<int> ID_Bilet) {
+        public virtual int Insert(int ID_Event_Card) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_Event_Card));
-            if ((ID_Bilet.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID_Bilet.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5074,23 +5132,9 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID_Event_Card, global::System.Nullable<int> ID_Bilet, int Original_ID_Event_Card, global::System.Nullable<int> Original_ID_Bilet) {
+        public virtual int Update(int ID_Event_Card, int Original_ID_Event_Card) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_Event_Card));
-            if ((ID_Bilet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID_Bilet.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID_Event_Card));
-            if ((Original_ID_Bilet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_Bilet.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_ID_Event_Card));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5111,8 +5155,8 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> ID_Bilet, int Original_ID_Event_Card, global::System.Nullable<int> Original_ID_Bilet) {
-            return this.Update(Original_ID_Event_Card, ID_Bilet, Original_ID_Event_Card, Original_ID_Bilet);
+        public virtual int Update(int Original_ID_Event_Card) {
+            return this.Update(Original_ID_Event_Card, Original_ID_Event_Card);
         }
     }
     
@@ -5239,55 +5283,104 @@ SELECT ID_Event_Card, ID_Bilet FROM Cancellation_of_the_Event WHERE (ID_Event_Ca
             tableMapping.DataSetTable = "Event_Card";
             tableMapping.ColumnMappings.Add("ID_Event_Card", "ID_Event_Card");
             tableMapping.ColumnMappings.Add("Name_Event_Card", "Name_Event_Card");
-            tableMapping.ColumnMappings.Add("Amount_of_visitors", "Amount_of_visitors");
             tableMapping.ColumnMappings.Add("Category_Bilets", "Category_Bilets");
+            tableMapping.ColumnMappings.Add("Amount_of_bilets", "Amount_of_bilets");
+            tableMapping.ColumnMappings.Add("Topic_Bilet", "Topic_Bilet");
+            tableMapping.ColumnMappings.Add("Address_Bilet", "Address_Bilet");
+            tableMapping.ColumnMappings.Add("Place_Bilet", "Place_Bilet");
+            tableMapping.ColumnMappings.Add("Date_Bilet", "Date_Bilet");
+            tableMapping.ColumnMappings.Add("Time_Bilet", "Time_Bilet");
             tableMapping.ColumnMappings.Add("Price_Bilets", "Price_Bilets");
-            tableMapping.ColumnMappings.Add("Analytics_Bilets", "Analytics_Bilets");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Event_Card] WHERE (([ID_Event_Card] = @Original_ID_Event_Card) AND ((@IsNull_Name_Event_Card = 1 AND [Name_Event_Card] IS NULL) OR ([Name_Event_Card] = @Original_Name_Event_Card)) AND ((@IsNull_Amount_of_visitors = 1 AND [Amount_of_visitors] IS NULL) OR ([Amount_of_visitors] = @Original_Amount_of_visitors)) AND ((@IsNull_Category_Bilets = 1 AND [Category_Bilets] IS NULL) OR ([Category_Bilets] = @Original_Category_Bilets)) AND ((@IsNull_Price_Bilets = 1 AND [Price_Bilets] IS NULL) OR ([Price_Bilets] = @Original_Price_Bilets)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Event_Card] WHERE (([ID_Event_Card] = @Original_ID_Event_Card) AND ((@IsNull_Name_Event_Card = 1 AND [Name_Event_Card] IS NULL) OR ([Name_Event_Card] = @Original_Name_Event_Card)) AND ((@IsNull_Category_Bilets = 1 AND [Category_Bilets] IS NULL) OR ([Category_Bilets] = @Original_Category_Bilets)) AND ((@IsNull_Amount_of_bilets = 1 AND [Amount_of_bilets] IS NULL) OR ([Amount_of_bilets] = @Original_Amount_of_bilets)) AND ((@IsNull_Topic_Bilet = 1 AND [Topic_Bilet] IS NULL) OR ([Topic_Bilet] = @Original_Topic_Bilet)) AND ((@IsNull_Address_Bilet = 1 AND [Address_Bilet] IS NULL) OR ([Address_Bilet] = @Original_Address_Bilet)) AND ((@IsNull_Place_Bilet = 1 AND [Place_Bilet] IS NULL) OR ([Place_Bilet] = @Original_Place_Bilet)) AND ((@IsNull_Date_Bilet = 1 AND [Date_Bilet] IS NULL) OR ([Date_Bilet] = @Original_Date_Bilet)) AND ((@IsNull_Time_Bilet = 1 AND [Time_Bilet] IS NULL) OR ([Time_Bilet] = @Original_Time_Bilet)) AND ((@IsNull_Price_Bilets = 1 AND [Price_Bilets] IS NULL) OR ([Price_Bilets] = @Original_Price_Bilets)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name_Event_Card", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name_Event_Card", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name_Event_Card", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount_of_visitors", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_visitors", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount_of_visitors", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_visitors", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount_of_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount_of_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Topic_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Place_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Event_Card] ([ID_Event_Card], [Name_Event_Card], [Amount_of_visitors], [Category_Bilets], [Price_Bilets], [Analytics_Bilets]) VALUES (@ID_Event_Card, @Name_Event_Card, @Amount_of_visitors, @Category_Bilets, @Price_Bilets, @Analytics_Bilets);
-SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Price_Bilets, Analytics_Bilets FROM Event_Card WHERE (ID_Event_Card = @ID_Event_Card)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Event_Card] ([Name_Event_Card], [Category_Bilets], [Amount_of_bilets], [Topic_Bilet], [Address_Bilet], [Place_Bilet], [Date_Bilet], [Time_Bilet], [Price_Bilets]) VALUES (@Name_Event_Card, @Category_Bilets, @Amount_of_bilets, @Topic_Bilet, @Address_Bilet, @Place_Bilet, @Date_Bilet, @Time_Bilet, @Price_Bilets);
+SELECT ID_Event_Card, Name_Event_Card, Category_Bilets, Amount_of_bilets, Topic_Bilet, Address_Bilet, Place_Bilet, Date_Bilet, Time_Bilet, Price_Bilets FROM Event_Card WHERE (ID_Event_Card = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_Event_Card", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount_of_visitors", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_visitors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount_of_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Analytics_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Analytics_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Event_Card] SET [ID_Event_Card] = @ID_Event_Card, [Name_Event_Card] = @Name_Event_Card, [Amount_of_visitors] = @Amount_of_visitors, [Category_Bilets] = @Category_Bilets, [Price_Bilets] = @Price_Bilets, [Analytics_Bilets] = @Analytics_Bilets WHERE (([ID_Event_Card] = @Original_ID_Event_Card) AND ((@IsNull_Name_Event_Card = 1 AND [Name_Event_Card] IS NULL) OR ([Name_Event_Card] = @Original_Name_Event_Card)) AND ((@IsNull_Amount_of_visitors = 1 AND [Amount_of_visitors] IS NULL) OR ([Amount_of_visitors] = @Original_Amount_of_visitors)) AND ((@IsNull_Category_Bilets = 1 AND [Category_Bilets] IS NULL) OR ([Category_Bilets] = @Original_Category_Bilets)) AND ((@IsNull_Price_Bilets = 1 AND [Price_Bilets] IS NULL) OR ([Price_Bilets] = @Original_Price_Bilets)));
-SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Price_Bilets, Analytics_Bilets FROM Event_Card WHERE (ID_Event_Card = @ID_Event_Card)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Event_Card] SET [Name_Event_Card] = @Name_Event_Card, [Category_Bil" +
+                "ets] = @Category_Bilets, [Amount_of_bilets] = @Amount_of_bilets, [Topic_Bilet] =" +
+                " @Topic_Bilet, [Address_Bilet] = @Address_Bilet, [Place_Bilet] = @Place_Bilet, [" +
+                "Date_Bilet] = @Date_Bilet, [Time_Bilet] = @Time_Bilet, [Price_Bilets] = @Price_B" +
+                "ilets WHERE (([ID_Event_Card] = @Original_ID_Event_Card) AND ((@IsNull_Name_Even" +
+                "t_Card = 1 AND [Name_Event_Card] IS NULL) OR ([Name_Event_Card] = @Original_Name" +
+                "_Event_Card)) AND ((@IsNull_Category_Bilets = 1 AND [Category_Bilets] IS NULL) O" +
+                "R ([Category_Bilets] = @Original_Category_Bilets)) AND ((@IsNull_Amount_of_bilet" +
+                "s = 1 AND [Amount_of_bilets] IS NULL) OR ([Amount_of_bilets] = @Original_Amount_" +
+                "of_bilets)) AND ((@IsNull_Topic_Bilet = 1 AND [Topic_Bilet] IS NULL) OR ([Topic_" +
+                "Bilet] = @Original_Topic_Bilet)) AND ((@IsNull_Address_Bilet = 1 AND [Address_Bi" +
+                "let] IS NULL) OR ([Address_Bilet] = @Original_Address_Bilet)) AND ((@IsNull_Plac" +
+                "e_Bilet = 1 AND [Place_Bilet] IS NULL) OR ([Place_Bilet] = @Original_Place_Bilet" +
+                ")) AND ((@IsNull_Date_Bilet = 1 AND [Date_Bilet] IS NULL) OR ([Date_Bilet] = @Or" +
+                "iginal_Date_Bilet)) AND ((@IsNull_Time_Bilet = 1 AND [Time_Bilet] IS NULL) OR ([" +
+                "Time_Bilet] = @Original_Time_Bilet)) AND ((@IsNull_Price_Bilets = 1 AND [Price_B" +
+                "ilets] IS NULL) OR ([Price_Bilets] = @Original_Price_Bilets)));\r\nSELECT ID_Event" +
+                "_Card, Name_Event_Card, Category_Bilets, Amount_of_bilets, Topic_Bilet, Address_" +
+                "Bilet, Place_Bilet, Date_Bilet, Time_Bilet, Price_Bilets FROM Event_Card WHERE (" +
+                "ID_Event_Card = @ID_Event_Card)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_Event_Card", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount_of_visitors", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_visitors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount_of_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Analytics_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Analytics_Bilets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name_Event_Card", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name_Event_Card", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name_Event_Card", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name_Event_Card", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount_of_visitors", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_visitors", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount_of_visitors", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_visitors", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_Bilets", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount_of_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount_of_bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Topic_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Topic_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Place_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Place_Bilet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Place_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Bilet", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time_Bilet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time_Bilet", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Bilet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price_Bilets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price_Bilets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Event_Card", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event_Card", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5303,8 +5396,9 @@ SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Pric
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Price" +
-                "_Bilets, Analytics_Bilets FROM dbo.Event_Card";
+            this._commandCollection[0].CommandText = "SELECT ID_Event_Card, Name_Event_Card, Category_Bilets, Amount_of_bilets, Topic_B" +
+                "ilet, Address_Bilet, Place_Bilet, Date_Bilet, Time_Bilet, Price_Bilets FROM dbo." +
+                "Event_Card";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5365,7 +5459,7 @@ SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Pric
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Event_Card, string Original_Name_Event_Card, global::System.Nullable<int> Original_Amount_of_visitors, string Original_Category_Bilets, global::System.Nullable<int> Original_Price_Bilets) {
+        public virtual int Delete(int Original_ID_Event_Card, string Original_Name_Event_Card, string Original_Category_Bilets, global::System.Nullable<int> Original_Amount_of_bilets, string Original_Topic_Bilet, string Original_Address_Bilet, string Original_Place_Bilet, global::System.Nullable<global::System.DateTime> Original_Date_Bilet, global::System.Nullable<global::System.TimeSpan> Original_Time_Bilet, global::System.Nullable<int> Original_Price_Bilets) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Event_Card));
             if ((Original_Name_Event_Card == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -5375,29 +5469,69 @@ SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Pric
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Name_Event_Card));
             }
-            if ((Original_Amount_of_visitors.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Amount_of_visitors.Value));
-            }
-            else {
+            if ((Original_Category_Bilets == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Category_Bilets == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Category_Bilets));
+            }
+            if ((Original_Amount_of_bilets.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Amount_of_bilets.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Category_Bilets));
-            }
-            if ((Original_Price_Bilets.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Price_Bilets.Value));
-            }
-            else {
+            if ((Original_Topic_Bilet == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Topic_Bilet));
+            }
+            if ((Original_Address_Bilet == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Address_Bilet));
+            }
+            if ((Original_Place_Bilet == null)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Place_Bilet));
+            }
+            if ((Original_Date_Bilet.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_Date_Bilet.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Time_Bilet.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((System.TimeSpan)(Original_Time_Bilet.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Price_Bilets.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_Price_Bilets.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5419,37 +5553,60 @@ SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Pric
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID_Event_Card, string Name_Event_Card, global::System.Nullable<int> Amount_of_visitors, string Category_Bilets, global::System.Nullable<int> Price_Bilets, string Analytics_Bilets) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_Event_Card));
+        public virtual int Insert(string Name_Event_Card, string Category_Bilets, global::System.Nullable<int> Amount_of_bilets, string Topic_Bilet, string Address_Bilet, string Place_Bilet, global::System.Nullable<global::System.DateTime> Date_Bilet, global::System.Nullable<global::System.TimeSpan> Time_Bilet, global::System.Nullable<int> Price_Bilets) {
             if ((Name_Event_Card == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name_Event_Card));
+            }
+            if ((Category_Bilets == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Name_Event_Card));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Category_Bilets));
             }
-            if ((Amount_of_visitors.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Amount_of_visitors.Value));
+            if ((Amount_of_bilets.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Amount_of_bilets.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Category_Bilets == null)) {
+            if ((Topic_Bilet == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Category_Bilets));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Topic_Bilet));
             }
-            if ((Price_Bilets.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Price_Bilets.Value));
-            }
-            else {
+            if ((Address_Bilet == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Analytics_Bilets == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Address_Bilet));
+            }
+            if ((Place_Bilet == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Analytics_Bilets));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Place_Bilet));
+            }
+            if ((Date_Bilet.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(Date_Bilet.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Time_Bilet.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.TimeSpan)(Time_Bilet.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Price_Bilets.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Price_Bilets.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5471,71 +5628,155 @@ SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Pric
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID_Event_Card, string Name_Event_Card, global::System.Nullable<int> Amount_of_visitors, string Category_Bilets, global::System.Nullable<int> Price_Bilets, string Analytics_Bilets, int Original_ID_Event_Card, string Original_Name_Event_Card, global::System.Nullable<int> Original_Amount_of_visitors, string Original_Category_Bilets, global::System.Nullable<int> Original_Price_Bilets) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_Event_Card));
+        public virtual int Update(
+                    string Name_Event_Card, 
+                    string Category_Bilets, 
+                    global::System.Nullable<int> Amount_of_bilets, 
+                    string Topic_Bilet, 
+                    string Address_Bilet, 
+                    string Place_Bilet, 
+                    global::System.Nullable<global::System.DateTime> Date_Bilet, 
+                    global::System.Nullable<global::System.TimeSpan> Time_Bilet, 
+                    global::System.Nullable<int> Price_Bilets, 
+                    int Original_ID_Event_Card, 
+                    string Original_Name_Event_Card, 
+                    string Original_Category_Bilets, 
+                    global::System.Nullable<int> Original_Amount_of_bilets, 
+                    string Original_Topic_Bilet, 
+                    string Original_Address_Bilet, 
+                    string Original_Place_Bilet, 
+                    global::System.Nullable<global::System.DateTime> Original_Date_Bilet, 
+                    global::System.Nullable<global::System.TimeSpan> Original_Time_Bilet, 
+                    global::System.Nullable<int> Original_Price_Bilets, 
+                    int ID_Event_Card) {
             if ((Name_Event_Card == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name_Event_Card));
+            }
+            if ((Category_Bilets == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Name_Event_Card));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Category_Bilets));
             }
-            if ((Amount_of_visitors.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Amount_of_visitors.Value));
+            if ((Amount_of_bilets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Amount_of_bilets.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Category_Bilets == null)) {
+            if ((Topic_Bilet == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Category_Bilets));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Topic_Bilet));
             }
-            if ((Price_Bilets.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Price_Bilets.Value));
-            }
-            else {
+            if ((Address_Bilet == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Analytics_Bilets == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Address_Bilet));
+            }
+            if ((Place_Bilet == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Analytics_Bilets));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Place_Bilet));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_Event_Card));
-            if ((Original_Name_Event_Card == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+            if ((Date_Bilet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Date_Bilet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Time_Bilet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.TimeSpan)(Time_Bilet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Price_Bilets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Price_Bilets.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Name_Event_Card));
-            }
-            if ((Original_Amount_of_visitors.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Amount_of_visitors.Value));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID_Event_Card));
+            if ((Original_Name_Event_Card == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Name_Event_Card));
             }
             if ((Original_Category_Bilets == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Category_Bilets));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Category_Bilets));
+            }
+            if ((Original_Amount_of_bilets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Amount_of_bilets.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Topic_Bilet == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Topic_Bilet));
+            }
+            if ((Original_Address_Bilet == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Address_Bilet));
+            }
+            if ((Original_Place_Bilet == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Place_Bilet));
+            }
+            if ((Original_Date_Bilet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_Date_Bilet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Time_Bilet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.TimeSpan)(Original_Time_Bilet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             if ((Original_Price_Bilets.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Price_Bilets.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Price_Bilets.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(ID_Event_Card));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5556,8 +5797,27 @@ SELECT ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Pric
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name_Event_Card, global::System.Nullable<int> Amount_of_visitors, string Category_Bilets, global::System.Nullable<int> Price_Bilets, string Analytics_Bilets, int Original_ID_Event_Card, string Original_Name_Event_Card, global::System.Nullable<int> Original_Amount_of_visitors, string Original_Category_Bilets, global::System.Nullable<int> Original_Price_Bilets) {
-            return this.Update(Original_ID_Event_Card, Name_Event_Card, Amount_of_visitors, Category_Bilets, Price_Bilets, Analytics_Bilets, Original_ID_Event_Card, Original_Name_Event_Card, Original_Amount_of_visitors, Original_Category_Bilets, Original_Price_Bilets);
+        public virtual int Update(
+                    string Name_Event_Card, 
+                    string Category_Bilets, 
+                    global::System.Nullable<int> Amount_of_bilets, 
+                    string Topic_Bilet, 
+                    string Address_Bilet, 
+                    string Place_Bilet, 
+                    global::System.Nullable<global::System.DateTime> Date_Bilet, 
+                    global::System.Nullable<global::System.TimeSpan> Time_Bilet, 
+                    global::System.Nullable<int> Price_Bilets, 
+                    int Original_ID_Event_Card, 
+                    string Original_Name_Event_Card, 
+                    string Original_Category_Bilets, 
+                    global::System.Nullable<int> Original_Amount_of_bilets, 
+                    string Original_Topic_Bilet, 
+                    string Original_Address_Bilet, 
+                    string Original_Place_Bilet, 
+                    global::System.Nullable<global::System.DateTime> Original_Date_Bilet, 
+                    global::System.Nullable<global::System.TimeSpan> Original_Time_Bilet, 
+                    global::System.Nullable<int> Original_Price_Bilets) {
+            return this.Update(Name_Event_Card, Category_Bilets, Amount_of_bilets, Topic_Bilet, Address_Bilet, Place_Bilet, Date_Bilet, Time_Bilet, Price_Bilets, Original_ID_Event_Card, Original_Name_Event_Card, Original_Category_Bilets, Original_Amount_of_bilets, Original_Topic_Bilet, Original_Address_Bilet, Original_Place_Bilet, Original_Date_Bilet, Original_Time_Bilet, Original_Price_Bilets, Original_ID_Event_Card);
         }
     }
     
@@ -6959,22 +7219,21 @@ SELECT ID_Bilet, Amount_Return_Bilets, Sum_Return FROM Refund_Bilets WHERE (ID_B
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Roles] ([ID], [Title]) VALUES (@ID, @Title);\r\nSELECT ID, Title" +
-                " FROM Roles WHERE (ID = @ID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Roles] ([Title]) VALUES (@Title);\r\nSELECT ID, Title FROM Roles" +
+                " WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Roles] SET [ID] = @ID, [Title] = @Title WHERE (([ID] = @Original_ID" +
-                ") AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)));" +
-                "\r\nSELECT ID, Title FROM Roles WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Roles] SET [Title] = @Title WHERE (([ID] = @Original_ID) AND ((@IsN" +
+                "ull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)));\r\nSELECT ID," +
+                " Title FROM Roles WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7081,13 +7340,12 @@ SELECT ID_Bilet, Amount_Return_Bilets, Sum_Return FROM Refund_Bilets WHERE (ID_B
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID, string Title) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
+        public virtual int Insert(string Title) {
             if ((Title == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Title));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Title));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7109,23 +7367,23 @@ SELECT ID_Bilet, Amount_Return_Bilets, Sum_Return FROM Refund_Bilets WHERE (ID_B
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID, string Title, int Original_ID, string Original_Title) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
+        public virtual int Update(string Title, int Original_ID, string Original_Title, int ID) {
             if ((Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Title));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Title));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_ID));
             if ((Original_Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Title));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Title));
             }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7147,7 +7405,7 @@ SELECT ID_Bilet, Amount_Return_Bilets, Sum_Return FROM Refund_Bilets WHERE (ID_B
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Title, int Original_ID, string Original_Title) {
-            return this.Update(Original_ID, Title, Original_ID, Original_Title);
+            return this.Update(Title, Original_ID, Original_Title, Original_ID);
         }
     }
     
@@ -7279,36 +7537,40 @@ SELECT ID_Bilet, Amount_Return_Bilets, Sum_Return FROM Refund_Bilets WHERE (ID_B
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Users] WHERE (([ID] = @Original_ID) AND ([Email] = @Original_E" +
-                "mail) AND ([Password] = @Original_Password) AND ([IDRole] = @Original_IDRole))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Users] WHERE (([ID] = @Original_ID) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_IDRole = 1 AND [IDRole] IS NULL) OR ([IDRole] = @Original_IDRole)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDRole", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRole", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRole", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRole", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Users] ([ID], [Email], [Password], [IDRole]) VALUES (@ID, @Ema" +
-                "il, @Password, @IDRole);\r\nSELECT ID, Email, Password, IDRole FROM Users WHERE (I" +
-                "D = @ID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Users] ([Email], [Password], [IDRole]) VALUES (@Email, @Passwo" +
+                "rd, @IDRole);\r\nSELECT ID, Email, Password, IDRole FROM Users WHERE (ID = SCOPE_I" +
+                "DENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRole", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRole", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Users] SET [ID] = @ID, [Email] = @Email, [Password] = @Password, [IDRole] = @IDRole WHERE (([ID] = @Original_ID) AND ([Email] = @Original_Email) AND ([Password] = @Original_Password) AND ([IDRole] = @Original_IDRole));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Users] SET [Email] = @Email, [Password] = @Password, [IDRole] = @IDRole WHERE (([ID] = @Original_ID) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_IDRole = 1 AND [IDRole] IS NULL) OR ([IDRole] = @Original_IDRole)));
 SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRole", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRole", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDRole", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRole", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRole", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRole", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7385,21 +7647,32 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_Email, string Original_Password, int Original_IDRole) {
+        public virtual int Delete(int Original_ID, string Original_Email, string Original_Password, global::System.Nullable<int> Original_IDRole) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Email == null)) {
-                throw new global::System.ArgumentNullException("Original_Email");
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Email));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Email));
             }
             if ((Original_Password == null)) {
-                throw new global::System.ArgumentNullException("Original_Password");
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Password));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Password));
             }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_IDRole));
+            if ((Original_IDRole.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_IDRole.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7420,21 +7693,25 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID, string Email, string Password, int IDRole) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
+        public virtual int Insert(string Email, string Password, global::System.Nullable<int> IDRole) {
             if ((Email == null)) {
-                throw new global::System.ArgumentNullException("Email");
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Email));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Email));
             }
             if ((Password == null)) {
-                throw new global::System.ArgumentNullException("Password");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Password));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Password));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(IDRole));
+            if ((IDRole.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(IDRole.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7455,35 +7732,51 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID, string Email, string Password, int IDRole, int Original_ID, string Original_Email, string Original_Password, int Original_IDRole) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
+        public virtual int Update(string Email, string Password, global::System.Nullable<int> IDRole, int Original_ID, string Original_Email, string Original_Password, global::System.Nullable<int> Original_IDRole, int ID) {
             if ((Email == null)) {
-                throw new global::System.ArgumentNullException("Email");
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Email));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Email));
             }
             if ((Password == null)) {
-                throw new global::System.ArgumentNullException("Password");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Password));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Password));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(IDRole));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
+            if ((IDRole.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(IDRole.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID));
             if ((Original_Email == null)) {
-                throw new global::System.ArgumentNullException("Original_Email");
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Email));
             }
             if ((Original_Password == null)) {
-                throw new global::System.ArgumentNullException("Original_Password");
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Password));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Password));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IDRole));
+            if ((Original_IDRole.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_IDRole.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7504,8 +7797,8 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Email, string Password, int IDRole, int Original_ID, string Original_Email, string Original_Password, int Original_IDRole) {
-            return this.Update(Original_ID, Email, Password, IDRole, Original_ID, Original_Email, Original_Password, Original_IDRole);
+        public virtual int Update(string Email, string Password, global::System.Nullable<int> IDRole, int Original_ID, string Original_Email, string Original_Password, global::System.Nullable<int> Original_IDRole) {
+            return this.Update(Email, Password, IDRole, Original_ID, Original_Email, Original_Password, Original_IDRole, Original_ID);
         }
     }
     
@@ -7521,9 +7814,9 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         
         private UpdateOrderOption _updateOrder;
         
-        private BiletsTableAdapter _biletsTableAdapter;
+        private BiletTableAdapter _biletTableAdapter;
         
-        private Cancellation_of_the_EventTableAdapter _cancellation_of_the_EventTableAdapter;
+        private Cancellation_of_the_eventTableAdapter _cancellation_of_the_eventTableAdapter;
         
         private Event_CardTableAdapter _event_CardTableAdapter;
         
@@ -7557,12 +7850,12 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public BiletsTableAdapter BiletsTableAdapter {
+        public BiletTableAdapter BiletTableAdapter {
             get {
-                return this._biletsTableAdapter;
+                return this._biletTableAdapter;
             }
             set {
-                this._biletsTableAdapter = value;
+                this._biletTableAdapter = value;
             }
         }
         
@@ -7571,12 +7864,12 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Cancellation_of_the_EventTableAdapter Cancellation_of_the_EventTableAdapter {
+        public Cancellation_of_the_eventTableAdapter Cancellation_of_the_eventTableAdapter {
             get {
-                return this._cancellation_of_the_EventTableAdapter;
+                return this._cancellation_of_the_eventTableAdapter;
             }
             set {
-                this._cancellation_of_the_EventTableAdapter = value;
+                this._cancellation_of_the_eventTableAdapter = value;
             }
         }
         
@@ -7683,13 +7976,13 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._biletsTableAdapter != null) 
-                            && (this._biletsTableAdapter.Connection != null))) {
-                    return this._biletsTableAdapter.Connection;
+                if (((this._biletTableAdapter != null) 
+                            && (this._biletTableAdapter.Connection != null))) {
+                    return this._biletTableAdapter.Connection;
                 }
-                if (((this._cancellation_of_the_EventTableAdapter != null) 
-                            && (this._cancellation_of_the_EventTableAdapter.Connection != null))) {
-                    return this._cancellation_of_the_EventTableAdapter.Connection;
+                if (((this._cancellation_of_the_eventTableAdapter != null) 
+                            && (this._cancellation_of_the_eventTableAdapter.Connection != null))) {
+                    return this._cancellation_of_the_eventTableAdapter.Connection;
                 }
                 if (((this._event_CardTableAdapter != null) 
                             && (this._event_CardTableAdapter.Connection != null))) {
@@ -7728,10 +8021,10 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._biletsTableAdapter != null)) {
+                if ((this._biletTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._cancellation_of_the_EventTableAdapter != null)) {
+                if ((this._cancellation_of_the_eventTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._event_CardTableAdapter != null)) {
@@ -7763,21 +8056,48 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(Bilet_SystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._biletsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Bilets.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._refund_BiletsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Refund_Bilets.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._biletsTableAdapter.Update(updatedRows));
+                    result = (result + this._refund_BiletsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cancellation_of_the_EventTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cancellation_of_the_Event.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._rolesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cancellation_of_the_EventTableAdapter.Update(updatedRows));
+                    result = (result + this._rolesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._biletTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Bilet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._biletTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cancellation_of_the_eventTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cancellation_of_the_event.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cancellation_of_the_eventTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7808,33 +8128,6 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._refund_BiletsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Refund_Bilets.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._refund_BiletsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._rolesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rolesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -7845,19 +8138,43 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(Bilet_SystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._biletsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Bilets.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._refund_BiletsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Refund_Bilets.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._biletsTableAdapter.Update(addedRows));
+                    result = (result + this._refund_BiletsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cancellation_of_the_EventTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cancellation_of_the_Event.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._rolesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cancellation_of_the_EventTableAdapter.Update(addedRows));
+                    result = (result + this._rolesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._biletTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Bilet.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._biletTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cancellation_of_the_eventTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cancellation_of_the_event.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cancellation_of_the_eventTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7885,30 +8202,6 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._refund_BiletsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Refund_Bilets.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._refund_BiletsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._rolesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rolesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -7919,30 +8212,6 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(Bilet_SystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rolesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rolesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._refund_BiletsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Refund_Bilets.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._refund_BiletsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._prodawecTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Prodawec.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7967,19 +8236,43 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cancellation_of_the_EventTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cancellation_of_the_Event.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cancellation_of_the_EventTableAdapter.Update(deletedRows));
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._biletsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Bilets.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cancellation_of_the_eventTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cancellation_of_the_event.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._biletsTableAdapter.Update(deletedRows));
+                    result = (result + this._cancellation_of_the_eventTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._biletTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Bilet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._biletTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._rolesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rolesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._refund_BiletsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Refund_Bilets.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._refund_BiletsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -8022,13 +8315,13 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._biletsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._biletsTableAdapter.Connection) == false))) {
+            if (((this._biletTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._biletTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._cancellation_of_the_EventTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._cancellation_of_the_EventTableAdapter.Connection) == false))) {
+            if (((this._cancellation_of_the_eventTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._cancellation_of_the_eventTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -8094,22 +8387,22 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._biletsTableAdapter != null)) {
-                    revertConnections.Add(this._biletsTableAdapter, this._biletsTableAdapter.Connection);
-                    this._biletsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._biletsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._biletsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._biletsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._biletsTableAdapter.Adapter);
+                if ((this._biletTableAdapter != null)) {
+                    revertConnections.Add(this._biletTableAdapter, this._biletTableAdapter.Connection);
+                    this._biletTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._biletTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._biletTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._biletTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._biletTableAdapter.Adapter);
                     }
                 }
-                if ((this._cancellation_of_the_EventTableAdapter != null)) {
-                    revertConnections.Add(this._cancellation_of_the_EventTableAdapter, this._cancellation_of_the_EventTableAdapter.Connection);
-                    this._cancellation_of_the_EventTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._cancellation_of_the_EventTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._cancellation_of_the_EventTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._cancellation_of_the_EventTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._cancellation_of_the_EventTableAdapter.Adapter);
+                if ((this._cancellation_of_the_eventTableAdapter != null)) {
+                    revertConnections.Add(this._cancellation_of_the_eventTableAdapter, this._cancellation_of_the_eventTableAdapter.Connection);
+                    this._cancellation_of_the_eventTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._cancellation_of_the_eventTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._cancellation_of_the_eventTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._cancellation_of_the_eventTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._cancellation_of_the_eventTableAdapter.Adapter);
                     }
                 }
                 if ((this._event_CardTableAdapter != null)) {
@@ -8224,13 +8517,13 @@ SELECT ID, Email, Password, IDRole FROM Users WHERE (ID = @ID)";
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._biletsTableAdapter != null)) {
-                    this._biletsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._biletsTableAdapter]));
-                    this._biletsTableAdapter.Transaction = null;
+                if ((this._biletTableAdapter != null)) {
+                    this._biletTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._biletTableAdapter]));
+                    this._biletTableAdapter.Transaction = null;
                 }
-                if ((this._cancellation_of_the_EventTableAdapter != null)) {
-                    this._cancellation_of_the_EventTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cancellation_of_the_EventTableAdapter]));
-                    this._cancellation_of_the_EventTableAdapter.Transaction = null;
+                if ((this._cancellation_of_the_eventTableAdapter != null)) {
+                    this._cancellation_of_the_eventTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cancellation_of_the_eventTableAdapter]));
+                    this._cancellation_of_the_eventTableAdapter.Transaction = null;
                 }
                 if ((this._event_CardTableAdapter != null)) {
                     this._event_CardTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._event_CardTableAdapter]));
