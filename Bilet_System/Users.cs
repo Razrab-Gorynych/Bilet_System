@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Threading;
 using System.Windows.Forms;
 
 public class Users
 {
 	int id;
-	string email;
-	string password;
+	public string email;
+    public string password;
 	int id_role;
 
 	public Users()
@@ -14,11 +16,16 @@ public class Users
 
     }
 
-    public void Send()
+    public void Login()
     {
-        Bilet_System.Bilet_SystemDataSetTableAdapters.UsersTableAdapter usertableadapter = new Bilet_System.Bilet_SystemDataSetTableAdapters.UsersTableAdapter();
-        usertableadapter.Insert(email, password, id_role);
+
     }
+
+    private void login()
+    {
+
+    }
+    
 
     public int GetID()
 	{

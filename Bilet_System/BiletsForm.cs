@@ -11,16 +11,26 @@ using System.Windows.Forms;
 
 namespace Bilet_System
 {
-    public partial class Form1 : Form
+    public partial class BiletsForm : Form
     {
-        public Form1()
+        public BiletsForm()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.event_CardTableAdapter.Fill(this.bilet_SystemDataSet.Event_Card);
+        }
 
+        private void more_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

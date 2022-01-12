@@ -46,19 +46,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthorizationForm.Designer.cs">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bilets.cs" />
     <Compile Include="Bilet_SystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Bilet_SystemDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Cancellation_of_the_Event.cs" />
-    <Compile Include="Event_Card.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="RefundBilets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RefundBilets.Designer.cs">
+      <DependentUpon>RefundBilets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancellation_of_the_Event.cs" />
+    <Compile Include="EventCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventCardForm.Designer.cs">
+      <DependentUpon>EventCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event_Card.cs" />
+    <Compile Include="BiletsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BiletsForm.Designer.cs">
+      <DependentUpon>BiletsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Pokupatel.cs" />
@@ -68,8 +86,14 @@
     <Compile Include="Refund_Bilets.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Users.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AuthorizationForm.resx">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BiletsForm.resx">
+      <DependentUpon>BiletsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventCardForm.resx">
+      <DependentUpon>EventCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,7 +103,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RefundBilets.resx">
+      <DependentUpon>RefundBilets.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Bilet_SystemData.xss" />
     <None Include="Bilet_SystemDataSet.xsc">
       <DependentUpon>Bilet_SystemDataSet.xsd</DependentUpon>
@@ -109,6 +137,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\Bilet_System.exe" />
     <Content Include="bin\Debug\Bilet_System.pdb" />
+    <None Include="bin\Debug\ImageBilets.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

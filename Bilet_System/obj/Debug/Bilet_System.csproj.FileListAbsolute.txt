@@ -2,9 +2,12 @@ C:\Project\College\Bilet_System\Bilet_System\bin\Debug\Bilet_System.exe.config
 C:\Project\College\Bilet_System\Bilet_System\bin\Debug\Bilet_System.exe
 C:\Project\College\Bilet_System\Bilet_System\bin\Debug\Bilet_System.pdb
 C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.csproj.AssemblyReference.cache
-C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.Form1.resources
 C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.Properties.Resources.resources
 C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.csproj.GenerateResource.cache
 C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.csproj.CoreCompileInputs.cache
 C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.exe
 C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.pdb
+C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.AuthorizationForm.resources
+C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.BiletsForm.resources
+C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.EventCardForm.resources
+C:\Project\College\Bilet_System\Bilet_System\obj\Debug\Bilet_System.RefundBilets.resources
